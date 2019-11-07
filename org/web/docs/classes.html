@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>类.Ve语言</title>
+</head>
+
+<body>
+    <!-- inject:header:html -->
+    <header>
+
+    </header>
+    <!-- endinject -->
+    <!-- inject:message:html -->
+    <div class="message-banner">
+
+    </div>
+    <!-- endinject -->
+    <div class="container">
+        <div class="navs">
+
+            <ul>
+
+                <li class="panel">
+                    <a>辅导教程</a>
+                    <ul>
+                        <li class="item"><a href="/typescript-in-5-minutes.html">5分钟上手TypeScript</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="panel">
+                    <a>手册指南</a>
+                    <ul>
+                        <li class="item"><a href="/variable-declarations.html">变量声明</a></li>
+                        <li class="item"><a href="/generics.html">泛型</a></li>
+                        <li class="item"><a href="/functions.html">函数</a></li>
+                        <li class="item"><a href="/basic-types.html">基础类型</a></li>
+                        <li class="item"><a href="/interfaces.html">接口</a></li>
+                        <li class="item"><a href="/classes.html" class="active">类</a></li>
+                        <li class="item"><a href="/namespaces.html">命名空间</a></li>
+                        <li class="item"><a href="/modules.html">模块</a></li>
+                        <li class="item"><a href="/exceptions.html">异常处理</a></li>
+                        <li class="item"><a href="/operators.html">运算符</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="content">
+            <h1 id="类">类</h1>
+            <h2 id="介绍">介绍</h2>
+            <p>和其它面向对象语言一样,Ve也支持基于类的面向对象的方式构建。</p>
+            <h2 id="类-1">类</h2>
+            <p>下面看一个使用类的例子：</p>
+            <pre><code>class Greeter {
+    greeting: string;
+    new(message: string)
+    {
+        this.greeting = message;
+    }
+    greet():string
+    {
+        return "Hello, " + this.greeting;
+    }
+}
+def greeter = new Greeter("world");
+print(greeter.greet()); //world</code></pre>
+            <p>如果你使用过C#或Java，你会对这种语法非常熟悉。 我们声明一个 Greeter类。这个类有3个成员：一个叫做 greeting的属性，一个构造函数和一个 greet方法。</p>
+            <p>你会注意到，我们在引用任何一个类成员的时候都用了 this。 它表示我们访问的是类的成员。</p>
+            <p>最后一行，我们使用 new构造了 Greeter类的一个实例。 它会调用之前定义的构造函数，创建一个 Greeter类型的新对象，并执行构造函数初始化它，并调用greet方法。</p>
+            <h2 id="继承">继承</h2>
+            <p>基于类的程序设计中一种最基本的模式是允许使用继承来扩展现有的类。在Ve里，我们可以使用常用的面向对象模式。 <br />
+                语法:</p>
+            <pre><code>&lt;acess-specifier&gt; class &lt;base_class&gt;
+{
+  ...
+}
+class &lt;derived_class&gt; : &lt;base_class&gt;
+{
+ ...
+}
+备注:
+    acess-specifier: 访问修饰符，表示该类对其它类的访问权限，有以下三个值:
+    default: 只能命名空间的类成员访问，为默认值
+    private: 只能自身访问
+    public：所有类都可访问  
+    protected：所有该类及其子类可访问</code></pre>
+            <p>示例:</p>
+            <pre><code>class Animal {
+    move(distanceInMeters: number = 0) {
+        print(`Animal moved ${distanceInMeters}m.`);
+    }
+}
+
+class Dog extends Animal {
+    bark() {
+        print('Woof! Woof!');
+    }
+}
+
+const dog = new Dog();
+dog.bark();
+dog.move(10);</code></pre>
+            <h2 id="多态">多态</h2>
+            <p>多态是同一个行为具有多个不同表现形式或形态的能力。在程序设计中,多态就是同一个接口，使用不同的实例而执行不同操作。</p>
+            <h2 id="存取器">存取器</h2>
+            <p>Ve支持通过getters/setters来截取对对象成员的访问。 它能帮助你有效的控制对对象成员的访问。</p>
+            <pre><code>def passcode = "secret passcode";
+
+class Employee {
+    private _fullName: string;
+
+    get fullName(): string {
+        return this._fullName;
+    }
+
+    set fullName(newName: string) {
+        if (passcode &amp;&amp; passcode == "secret passcode") {
+            this._fullName = newName;
+        }
+        else {
+            print("Error: Unauthorized update of employee!");
+        }
+    }
+}
+
+def employee = new Employee();
+employee.fullName = "Bob Smith";
+if (employee.fullName) {
+    alert(employee.fullName);
+}</code></pre>
+            <p>我们可以修改一下密码，来验证一下存取器是否是工作的。当密码不对时，会提示我们没有权限去修改员工。</p>
+            <h2 id="静态成员">静态成员</h2>
+            <p>到目前为止，我们只讨论了类的实例成员，那些仅当类被实例化的时候才会被初始化的属性。 我们也可以创建类的静态成员，这些属性存在于类本身上面而不是类的实例上。 <br />
+                在Ve里需在该成员名称前加static，如同范围实例成员上使用 this.前缀一样,这里我们使用 类名. 来访问。</p>
+            <pre><code>class StaticVar {
+    public static num:int;
+    public count(){
+        num++;
+    }
+    public getNum():int{
+        return num;
+    }
+    public static getStaticNum():int{
+        return num;
+    }
+}
+def s1:StaticVar = new StaticVar();
+def s2:StaticVar = new StaticVar();
+s1.count();
+s1.count();
+s1.count();
+s2.count();
+s2.count();
+s2.count();         
+print"s1 的变量 num：", s1.getNum()); //s1 的变量 num： 6
+print"s2 的变量 num：", s2.getNum()); //s2 的变量 num： 6
+print"StaticVar num：", StaticVar.getStaticNum()); //StaticVar num： 6</code></pre>
+        </div>
+    </div>
+    <!-- inject:footer:html -->
+    <footer style="position: relative; z-index: 100;">
+
+    </footer>
+    <!-- endinject -->
+</body>
+
+</html>

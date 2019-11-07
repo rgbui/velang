@@ -1,0 +1,56 @@
+[
+    {
+        "text":"辅导教程",
+        "childs": [
+            {
+                "text":"5分钟上手TypeScript",
+                "url":"typescript-in-5-minutes.html"
+            }
+        ]
+    },
+    {
+        "text":"手册指南",
+        "childs": [
+            {
+                "text":"变量声明",
+                "url":"variable-declarations.html"
+            },
+            {
+                "text":"泛型",
+                "url":"generics.html"
+            },
+            {
+                "text":"函数",
+                "url":"functions.html"
+            },
+            {
+                "text":"基础类型",
+                "url":"basic-types.html"
+            },
+            {
+                "text":"接口",
+                "url":"interfaces.html"
+            },
+            {
+                "text":"类",
+                "url":"classes.html"
+            },
+            {
+                "text":"命名空间",
+                "url":"namespaces.html"
+            },
+            {
+                "text":"模块",
+                "url":"modules.html"
+            },
+            {
+                "text":"异常处理",
+                "url":"exceptions.html"
+            },
+            {
+                "text":"运算符",
+                "url":"operators.html"
+            }
+        ]
+    }
+]

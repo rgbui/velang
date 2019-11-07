@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+        
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>命名空间.Ve语言</title>
+</head>
+
+<body>
+    <!-- inject:header:html -->
+    <header>
+
+    </header>
+    <!-- endinject -->
+    <!-- inject:message:html -->
+    <div class="message-banner">
+
+    </div>
+    <!-- endinject -->
+    <div class="container">
+        <div class="navs">
+            
+    <ul>
+        
+           <li class="panel">
+                <a>辅导教程</a>
+                <ul>
+                <li class="item"><a href="/typescript-in-5-minutes.html" >5分钟上手TypeScript</a></li>
+                </ul>
+           </li>
+           
+
+           <li class="panel">
+                <a>手册指南</a>
+                <ul>
+                <li class="item"><a href="/variable-declarations.html" >变量声明</a></li>
+<li class="item"><a href="/generics.html" >泛型</a></li>
+<li class="item"><a href="/functions.html" >函数</a></li>
+<li class="item"><a href="/basic-types.html" >基础类型</a></li>
+<li class="item"><a href="/interfaces.html" >接口</a></li>
+<li class="item"><a href="/classes.html" >类</a></li>
+<li class="item"><a href="/namespaces.html" class="active">命名空间</a></li>
+<li class="item"><a href="/modules.html" >模块</a></li>
+<li class="item"><a href="/exceptions.html" >异常处理</a></li>
+<li class="item"><a href="/operators.html" >运算符</a></li>
+                </ul>
+           </li>
+           
+    </ul>
+    
+        </div>
+        <div class="content">
+            <h1 id="命名空间">命名空间</h1>
+<h2 id="介绍">介绍</h2>
+<p>为了更好地组织类，Ve 提供了包机制，用于区别类名的命名空间。</p>
+<h2 id="包">包</h2>
+<p>包语句的语法格式为：</p>
+<pre><code>use 包名;
+use 包名.类名 实例名;</code></pre>
+<p>示例:</p>
+<pre><code>package nc{
+    class classA
+    {
+        do(){
+
+        }
+    }
+}
+// 其它文件代码文件引用
+use nc;
+use nc.classA </code></pre>
+        </div>
+    </div>
+    <!-- inject:footer:html -->
+    <footer style="position: relative; z-index: 100;">
+
+    </footer>
+    <!-- endinject -->
+</body>
+
+</html>
