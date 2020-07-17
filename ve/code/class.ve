@@ -1,0 +1,32 @@
+
+package Ve.Sys{
+     use Ve;
+     [Des({description:"eeee"})]
+     export class Student {
+         public sex:bool;
+         public account:string;
+         public birthday:Date;
+         public year:number{
+             get{
+                 return this.birthay.year;
+             }
+             set{
+                 this.birthday.year=value;
+                 this@birthay@year=value;
+             }
+         }
+         work(a:{str:String,b:Number})
+         {
+            @brithday;
+            @@brithday;
+         }
+         parm(a:(b:number)=>bool)
+         {
+
+         }        
+     }
+     export class User<T>{
+          public t:T;
+     }
+     def user=new User<Student>();
+}

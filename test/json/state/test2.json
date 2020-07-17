@@ -1,0 +1,265 @@
+{
+    "type": 0,
+    "childs": [
+        {
+            "type": 1,
+            "name": 43,
+            "col": 0,
+            "size": 3,
+            "row": 1,
+            "value": "def",
+            "childs": []
+        },
+        {
+            "type": 7,
+            "col": 4,
+            "size": 1,
+            "row": 1,
+            "value": "a",
+            "childs": []
+        },
+        {
+            "type": 4,
+            "name": 63,
+            "col": 5,
+            "size": 1,
+            "row": 1,
+            "value": ":",
+            "childs": []
+        },
+        {
+            "type": 2,
+            "name": 60,
+            "col": 6,
+            "size": 1,
+            "row": 1,
+            "value": "{",
+            "childs": [
+                {
+                    "type": 7,
+                    "col": 7,
+                    "size": 1,
+                    "row": 1,
+                    "value": "a",
+                    "childs": []
+                },
+                {
+                    "type": 4,
+                    "name": 63,
+                    "col": 8,
+                    "size": 1,
+                    "row": 1,
+                    "value": ":",
+                    "childs": []
+                },
+                {
+                    "type": 7,
+                    "col": 9,
+                    "size": 6,
+                    "row": 1,
+                    "value": "string",
+                    "childs": []
+                },
+                {
+                    "type": 4,
+                    "name": 79,
+                    "col": 15,
+                    "size": 1,
+                    "row": 1,
+                    "value": ",",
+                    "childs": []
+                },
+                {
+                    "type": 7,
+                    "col": 16,
+                    "size": 1,
+                    "row": 1,
+                    "value": "b",
+                    "childs": []
+                },
+                {
+                    "type": 4,
+                    "name": 63,
+                    "col": 17,
+                    "size": 1,
+                    "row": 1,
+                    "value": ":",
+                    "childs": []
+                },
+                {
+                    "type": 7,
+                    "col": 18,
+                    "size": 6,
+                    "row": 1,
+                    "value": "number",
+                    "childs": []
+                }
+            ]
+        },
+        {
+            "type": 3,
+            "name": 62,
+            "col": 24,
+            "size": 1,
+            "row": 1,
+            "value": "}",
+            "childs": []
+        },
+        {
+            "type": 4,
+            "name": 72,
+            "col": 25,
+            "size": 1,
+            "row": 1,
+            "value": "=",
+            "childs": []
+        },
+        {
+            "type": 2,
+            "name": 60,
+            "col": 26,
+            "size": 1,
+            "row": 1,
+            "value": "{",
+            "childs": [
+                {
+                    "type": 7,
+                    "col": 27,
+                    "size": 1,
+                    "row": 1,
+                    "value": "a",
+                    "childs": []
+                },
+                {
+                    "type": 4,
+                    "name": 63,
+                    "col": 28,
+                    "size": 1,
+                    "row": 1,
+                    "value": ":",
+                    "childs": []
+                },
+                {
+                    "type": 6,
+                    "col": 29,
+                    "size": 7,
+                    "row": 1,
+                    "value": "12233",
+                    "childs": []
+                },
+                {
+                    "type": 4,
+                    "name": 79,
+                    "col": 36,
+                    "size": 1,
+                    "row": 1,
+                    "value": ",",
+                    "childs": []
+                },
+                {
+                    "type": 7,
+                    "col": 37,
+                    "size": 1,
+                    "row": 1,
+                    "value": "b",
+                    "childs": []
+                },
+                {
+                    "type": 4,
+                    "name": 63,
+                    "col": 38,
+                    "size": 1,
+                    "row": 1,
+                    "value": ":",
+                    "childs": []
+                },
+                {
+                    "type": 4,
+                    "name": 86,
+                    "col": 39,
+                    "size": 1,
+                    "row": 1,
+                    "value": "/",
+                    "childs": []
+                },
+                {
+                    "type": 5,
+                    "col": 40,
+                    "size": 4,
+                    "row": 1,
+                    "value": "2008",
+                    "childs": []
+                },
+                {
+                    "type": 4,
+                    "name": 84,
+                    "col": 44,
+                    "size": 1,
+                    "row": 1,
+                    "value": "-",
+                    "childs": []
+                },
+                {
+                    "type": 5,
+                    "col": 45,
+                    "size": 2,
+                    "row": 1,
+                    "value": "12",
+                    "childs": []
+                },
+                {
+                    "type": 4,
+                    "name": 84,
+                    "col": 47,
+                    "size": 1,
+                    "row": 1,
+                    "value": "-",
+                    "childs": []
+                },
+                {
+                    "type": 5,
+                    "col": 48,
+                    "size": 2,
+                    "row": 1,
+                    "value": "25",
+                    "childs": []
+                },
+                {
+                    "type": 4,
+                    "name": 86,
+                    "col": 50,
+                    "size": 1,
+                    "row": 1,
+                    "value": "/",
+                    "childs": []
+                },
+                {
+                    "type": 7,
+                    "col": 51,
+                    "size": 4,
+                    "row": 1,
+                    "value": "date",
+                    "childs": []
+                }
+            ]
+        },
+        {
+            "type": 3,
+            "name": 62,
+            "col": 55,
+            "size": 1,
+            "row": 1,
+            "value": "}",
+            "childs": []
+        },
+        {
+            "type": 4,
+            "name": 64,
+            "col": 56,
+            "size": 1,
+            "row": 1,
+            "value": ";",
+            "childs": []
+        }
+    ]
+}

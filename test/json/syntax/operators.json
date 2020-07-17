@@ -1,0 +1,913 @@
+[
+    {
+        "name": 22,
+        "string": "as",
+        "type": [
+            6,
+            13
+        ],
+        "precedence": 9,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 23,
+        "string": "is",
+        "type": [
+            6,
+            13
+        ],
+        "precedence": 9,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 24,
+        "string": "new",
+        "type": [
+            4,
+            13
+        ],
+        "precedence": 15,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 81,
+        "string": "and",
+        "type": [
+            6,
+            13
+        ],
+        "precedence": 4,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 80,
+        "string": "or",
+        "type": [
+            6,
+            13
+        ],
+        "precedence": 5,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 82,
+        "string": "xor",
+        "type": [
+            6,
+            13
+        ],
+        "precedence": 7,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 56,
+        "string": "(",
+        "type": [
+            7
+        ],
+        "precedence": 16,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 57,
+        "string": ")",
+        "type": [
+            8
+        ],
+        "precedence": 0,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 58,
+        "string": "[",
+        "type": [
+            7
+        ],
+        "precedence": 16,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 59,
+        "string": "]",
+        "type": [
+            8
+        ],
+        "precedence": 0,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 60,
+        "string": "{",
+        "type": [
+            7
+        ],
+        "precedence": 4,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 61,
+        "string": "@{",
+        "type": [
+            7
+        ],
+        "precedence": 0,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 62,
+        "string": "}",
+        "type": [
+            8
+        ],
+        "precedence": 0,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 63,
+        "string": ":",
+        "type": [
+            6
+        ],
+        "precedence": 3,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 64,
+        "string": ";",
+        "type": [
+            0
+        ],
+        "precedence": 0,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 65,
+        "string": ".",
+        "type": [
+            6
+        ],
+        "precedence": 16,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 67,
+        "string": "...",
+        "type": [
+            9
+        ],
+        "precedence": 2,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 68,
+        "string": "?",
+        "type": [
+            5
+        ],
+        "precedence": 3,
+        "lang": 0,
+        "direction": 1
+    },
+    {
+        "name": 69,
+        "string": "++",
+        "type": [
+            4
+        ],
+        "precedence": 0,
+        "lang": 0,
+        "direction": 1
+    },
+    {
+        "name": 70,
+        "string": "--",
+        "type": [
+            4
+        ],
+        "precedence": 0,
+        "lang": 0,
+        "direction": 1
+    },
+    {
+        "name": 71,
+        "string": "=>",
+        "type": [
+            6
+        ],
+        "precedence": 0,
+        "lang": 0,
+        "direction": 1
+    },
+    {
+        "name": 72,
+        "string": "=",
+        "type": [
+            6
+        ],
+        "precedence": 2,
+        "lang": 0,
+        "direction": 1
+    },
+    {
+        "name": 73,
+        "string": "+=",
+        "type": [
+            6
+        ],
+        "precedence": 2,
+        "lang": 0,
+        "direction": 1
+    },
+    {
+        "name": 74,
+        "string": "-=",
+        "type": [
+            6
+        ],
+        "precedence": 2,
+        "lang": 0,
+        "direction": 1
+    },
+    {
+        "name": 75,
+        "string": "*=",
+        "type": [
+            6
+        ],
+        "precedence": 2,
+        "lang": 0,
+        "direction": 1
+    },
+    {
+        "name": 76,
+        "string": "/=",
+        "type": [
+            6
+        ],
+        "precedence": 2,
+        "lang": 0,
+        "direction": 1
+    },
+    {
+        "name": 77,
+        "string": "%=",
+        "type": [
+            6
+        ],
+        "precedence": 2,
+        "lang": 0,
+        "direction": 1
+    },
+    {
+        "name": 78,
+        "string": "**=",
+        "type": [
+            6
+        ],
+        "precedence": 2,
+        "lang": 0,
+        "direction": 1
+    },
+    {
+        "name": 79,
+        "string": ",",
+        "type": [
+            10
+        ],
+        "precedence": 1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 80,
+        "string": "||",
+        "type": [
+            6
+        ],
+        "precedence": 4,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 81,
+        "string": "&&",
+        "type": [
+            6
+        ],
+        "precedence": 5,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 82,
+        "string": "&|",
+        "type": [
+            6
+        ],
+        "precedence": 7,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 83,
+        "string": "+",
+        "type": [
+            6
+        ],
+        "precedence": 12,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 84,
+        "string": "-",
+        "type": [
+            6
+        ],
+        "precedence": 12,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 85,
+        "string": "*",
+        "type": [
+            6
+        ],
+        "precedence": 13,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 86,
+        "string": "/",
+        "type": [
+            6
+        ],
+        "precedence": 13,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 87,
+        "string": "%",
+        "type": [
+            6
+        ],
+        "precedence": 13,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 88,
+        "string": "**",
+        "type": [
+            6
+        ],
+        "precedence": 14,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 89,
+        "string": "==",
+        "type": [
+            6
+        ],
+        "precedence": 9,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 91,
+        "string": "!=",
+        "type": [
+            6
+        ],
+        "precedence": 9,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 90,
+        "string": "!",
+        "type": [
+            4
+        ],
+        "precedence": 15,
+        "lang": 0,
+        "direction": 1
+    },
+    {
+        "name": 92,
+        "string": "<",
+        "type": [
+            7,
+            6
+        ],
+        "precedence": 10,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 93,
+        "string": ">",
+        "type": [
+            8,
+            6
+        ],
+        "precedence": 10,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 94,
+        "string": "<=",
+        "type": [
+            6
+        ],
+        "precedence": 10,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 95,
+        "string": ">=",
+        "type": [
+            6
+        ],
+        "precedence": 10,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 96,
+        "string": "//",
+        "type": [
+            7
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 97,
+        "string": "/*",
+        "type": [
+            7
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 98,
+        "string": "*/",
+        "type": [
+            8
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 99,
+        "string": "'",
+        "type": [
+            11
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 100,
+        "string": "\"",
+        "type": [
+            11
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 101,
+        "string": "\\",
+        "type": [
+            12
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 22,
+        "string": "为",
+        "type": [
+            6,
+            13
+        ],
+        "precedence": 9,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 23,
+        "string": "似",
+        "type": [
+            6,
+            13
+        ],
+        "precedence": 9,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 24,
+        "string": "初",
+        "type": [
+            4,
+            13
+        ],
+        "precedence": 15,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 81,
+        "string": "且",
+        "type": [
+            6,
+            13
+        ],
+        "precedence": 4,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 80,
+        "string": "或",
+        "type": [
+            6,
+            13
+        ],
+        "precedence": 5,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 82,
+        "string": "异或",
+        "type": [
+            6,
+            13
+        ],
+        "precedence": 7,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 56,
+        "string": "（",
+        "type": [
+            7
+        ],
+        "precedence": 16,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 57,
+        "string": "）",
+        "type": [
+            8
+        ],
+        "precedence": 0,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 58,
+        "string": "【",
+        "type": [
+            7
+        ],
+        "precedence": 16,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 59,
+        "string": "】",
+        "type": [
+            8
+        ],
+        "precedence": 0,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 63,
+        "string": "：",
+        "type": [
+            6
+        ],
+        "precedence": 3,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 64,
+        "string": "；",
+        "type": [
+            0
+        ],
+        "precedence": 0,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 65,
+        "string": "@",
+        "type": [
+            6
+        ],
+        "precedence": 16,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 67,
+        "string": "……",
+        "type": [
+            9
+        ],
+        "precedence": 2,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 68,
+        "string": "？",
+        "type": [
+            5
+        ],
+        "precedence": 3,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 71,
+        "string": "=》",
+        "type": [
+            6
+        ],
+        "precedence": 0,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 76,
+        "string": "~=",
+        "type": [
+            6
+        ],
+        "precedence": 2,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 79,
+        "string": "，",
+        "type": [
+            10
+        ],
+        "precedence": 1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 86,
+        "string": "~",
+        "type": [
+            6
+        ],
+        "precedence": 13,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 91,
+        "string": "！=",
+        "type": [
+            6
+        ],
+        "precedence": 9,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 90,
+        "string": "！",
+        "type": [
+            4
+        ],
+        "precedence": 15,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 92,
+        "string": "《",
+        "type": [
+            7,
+            6
+        ],
+        "precedence": 10,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 93,
+        "string": "》",
+        "type": [
+            8,
+            6
+        ],
+        "precedence": 10,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 94,
+        "string": "《=",
+        "type": [
+            6
+        ],
+        "precedence": 10,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 95,
+        "string": "》=",
+        "type": [
+            6
+        ],
+        "precedence": 10,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 91,
+        "string": "不等于",
+        "type": [
+            6,
+            13
+        ],
+        "precedence": 9,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 92,
+        "string": "小于",
+        "type": [
+            6,
+            13
+        ],
+        "precedence": 10,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 93,
+        "string": "大于",
+        "type": [
+            6,
+            13
+        ],
+        "precedence": 10,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 94,
+        "string": "小于等于",
+        "type": [
+            6,
+            13
+        ],
+        "precedence": 10,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 95,
+        "string": "大于等于",
+        "type": [
+            6,
+            13
+        ],
+        "precedence": 10,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 96,
+        "string": "##",
+        "type": [
+            7
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 97,
+        "string": "#*",
+        "type": [
+            7
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 98,
+        "string": "*#",
+        "type": [
+            8
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 99,
+        "string": "‘",
+        "type": [
+            11
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 99,
+        "string": "’",
+        "type": [
+            11
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 100,
+        "string": "“",
+        "type": [
+            11
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 100,
+        "string": "”",
+        "type": [
+            11
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 101,
+        "string": "#",
+        "type": [
+            12
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    }
+]

@@ -1,0 +1,25 @@
+package Ve{
+    export interface Array<T>{
+        readonly length:int;
+        clear():void;
+        exists(item:T):bool;
+        exists(predict:(item:T)=>bool):bool;
+        findIndex(item:T):int;
+        findLastIndex(item:T):int;
+        findIndex(predict:(item:T)=>bool):bool;
+        find(predict:(item:T,at:int)=>bool):T;
+        findLast(predict:(item:T,at:int)=>bool):T;
+        findAll(predict:(item:T,at:int)=>bool):T[];
+        append(item:T):void;
+        prepend(item:T):void;
+        insertAt(item:T,at:int):void;
+        set(at:int,item:T):void;
+        get(at:int):T;
+        sum(predict:(item:T,at:int)=>number):number;
+        avg(predict:(item:T,at:int)=>number):number;
+        max(predict:(item:T,at:int)=>number):number;
+        min(predict:(item:T,at:int)=>number):number;
+        count(predict:(item:T,at:int)=>bool):number;
+        sort(predict:(item:T,at:int)=>any,order:int):T[];
+    }
+}

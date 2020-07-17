@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "outDir": "./ts",
+        "declaration": true,
+        "target": "es6",
+        "removeComments": true, 
+        "sourceMap": true,
+        "charset":"utf8"
+    }
+}

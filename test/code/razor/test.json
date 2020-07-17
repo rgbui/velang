@@ -1,0 +1,141 @@
+{
+    "type": "fragment",
+    "childs": [{
+        "type": "if",
+        "childs": [{
+            "type": "text",
+            "value": "text",
+            "text": "text",
+            "childs": [],
+            "env": "code"
+        }],
+        "env": "code"
+    }, {
+        "type": "text",
+        "value": "\n",
+        "text": "\n",
+        "childs": [],
+        "env": "code"
+    }, {
+        "type": "text",
+        "value": "    ",
+        "text": "    ",
+        "childs": [],
+        "env": "code"
+    }, {
+        "type": "text",
+        "value": "\n",
+        "text": "\n",
+        "childs": [],
+        "env": "code"
+    }, {
+        "type": "text",
+        "value": "    ",
+        "text": "    ",
+        "childs": [],
+        "env": "code"
+    }, {
+        "type": "blockLeft",
+        "value": "{",
+        "text": "{",
+        "childs": [{
+            "type": "text",
+            "value": " ",
+            "text": " ",
+            "childs": [],
+            "env": "text"
+        }, {
+            "type": "text",
+            "value": "\n",
+            "text": "\n",
+            "childs": [],
+            "env": "text"
+        }, {
+            "type": "text",
+            "value": "       ",
+            "text": "       ",
+            "childs": [],
+            "env": "text"
+        }, {
+            "type": "text",
+            "value": "\n",
+            "text": "\n",
+            "childs": [],
+            "env": "text"
+        }, {
+            "type": "text",
+            "value": "        ",
+            "text": "        ",
+            "childs": [],
+            "env": "text"
+        }, {
+            "type": "text",
+            "value": "\n",
+            "text": "\n",
+            "childs": [],
+            "env": "text"
+        }, {
+            "type": "text",
+            "value": "    ",
+            "text": "    ",
+            "childs": [],
+            "env": "text"
+        }],
+        "env": "code"
+    }, {
+        "type": "text",
+        "value": "\n\n",
+        "text": "\n\n",
+        "childs": [],
+        "env": "text"
+    }, {
+        "type": "text",
+        "value": "    else ",
+        "text": "    else ",
+        "childs": [],
+        "env": "text"
+    }, {
+        "type": "blockLeft",
+        "value": "{",
+        "text": "{",
+        "childs": [{
+            "type": "text",
+            "value": "\n",
+            "text": "\n",
+            "childs": [],
+            "env": "text"
+        }, {
+            "type": "text",
+            "value": "        ",
+            "text": "        ",
+            "childs": [],
+            "env": "text"
+        }, {
+            "type": "text",
+            "value": "\n",
+            "text": "\n",
+            "childs": [],
+            "env": "text"
+        }, {
+            "type": "text",
+            "value": "    ",
+            "text": "    ",
+            "childs": [],
+            "env": "text"
+        }],
+        "env": "text"
+    }, {
+        "type": "text",
+        "value": "\n",
+        "text": "\n",
+        "childs": [],
+        "env": "text"
+    }, {
+        "type": "text",
+        "value": "    ",
+        "text": "    ",
+        "childs": [],
+        "env": "text"
+    }],
+    "env": "text"
+}

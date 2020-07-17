@@ -1,0 +1,828 @@
+[
+    {
+        "name": 0,
+        "string": "for",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 1,
+        "string": "while",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 2,
+        "string": "do",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 3,
+        "string": "if",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 4,
+        "string": "else",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 7,
+        "string": "switch",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 8,
+        "string": "case",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 9,
+        "string": "default",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 10,
+        "string": "try",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 11,
+        "string": "catch",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 12,
+        "string": "finally",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 13,
+        "string": "continue",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 14,
+        "string": "break",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 15,
+        "string": "return",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 16,
+        "string": "throw",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 20,
+        "string": "true",
+        "type": [
+            1
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 21,
+        "string": "false",
+        "type": [
+            1
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 19,
+        "string": "null",
+        "type": [
+            1
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 34,
+        "string": "super",
+        "type": [
+            2
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 35,
+        "string": "this",
+        "type": [
+            2
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 36,
+        "string": "value",
+        "type": [
+            2
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 37,
+        "string": "get",
+        "type": [
+            2,
+            9
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 38,
+        "string": "set",
+        "type": [
+            2,
+            9
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 39,
+        "string": "fun",
+        "type": [
+            3
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 40,
+        "string": "class",
+        "type": [
+            3
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 44,
+        "string": "interface",
+        "type": [
+            3
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 29,
+        "string": "extends",
+        "type": [
+            3
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 41,
+        "string": "package",
+        "type": [
+            3
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 42,
+        "string": "use",
+        "type": [
+            3
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 43,
+        "string": "def",
+        "type": [
+            3
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 45,
+        "string": "enum",
+        "type": [
+            3
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 46,
+        "string": "public",
+        "type": [
+            9
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 47,
+        "string": "private",
+        "type": [
+            9
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 48,
+        "string": "protected",
+        "type": [
+            9
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 49,
+        "string": "sealed",
+        "type": [
+            9
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 50,
+        "string": "const",
+        "type": [
+            3,
+            9
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 51,
+        "string": "static",
+        "type": [
+            9
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 52,
+        "string": "readonly",
+        "type": [
+            9
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 53,
+        "string": "override",
+        "type": [
+            9
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 54,
+        "string": "export",
+        "type": [
+            9
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 55,
+        "string": "in",
+        "type": [
+            9
+        ],
+        "precedence": -1,
+        "lang": 0,
+        "direction": 0
+    },
+    {
+        "name": 0,
+        "string": "环",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 1,
+        "string": "当",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 2,
+        "string": "执行",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 3,
+        "string": "若",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 5,
+        "string": "否则",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 6,
+        "string": "如若",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 7,
+        "string": "匹",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 8,
+        "string": "配",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 9,
+        "string": "归",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 10,
+        "string": "捕",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 11,
+        "string": "获",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 12,
+        "string": "终",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 13,
+        "string": "中止",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 14,
+        "string": "中断",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 15,
+        "string": "返回",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 16,
+        "string": "扔",
+        "type": [
+            0
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 20,
+        "string": "是",
+        "type": [
+            1
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 21,
+        "string": "否",
+        "type": [
+            1
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 19,
+        "string": "空",
+        "type": [
+            1
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 34,
+        "string": "父",
+        "type": [
+            2
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 35,
+        "string": "本",
+        "type": [
+            2
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 36,
+        "string": "值",
+        "type": [
+            2
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 37,
+        "string": "取",
+        "type": [
+            2,
+            9
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 38,
+        "string": "放",
+        "type": [
+            2,
+            9
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 39,
+        "string": "法",
+        "type": [
+            3
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 40,
+        "string": "类",
+        "type": [
+            3
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 44,
+        "string": "接口",
+        "type": [
+            3
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 29,
+        "string": "继承",
+        "type": [
+            3
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 41,
+        "string": "包",
+        "type": [
+            3
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 42,
+        "string": "引用",
+        "type": [
+            3
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 43,
+        "string": "定义",
+        "type": [
+            3
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 45,
+        "string": "枚举",
+        "type": [
+            3
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 46,
+        "string": "公开",
+        "type": [
+            9
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 47,
+        "string": "私有",
+        "type": [
+            9
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 48,
+        "string": "保护",
+        "type": [
+            9
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 49,
+        "string": "密封",
+        "type": [
+            9
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 50,
+        "string": "常量",
+        "type": [
+            3,
+            9
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 51,
+        "string": "静量",
+        "type": [
+            9
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 52,
+        "string": "只读",
+        "type": [
+            9
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 53,
+        "string": "重载",
+        "type": [
+            9
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    },
+    {
+        "name": 55,
+        "string": "内",
+        "type": [
+            9
+        ],
+        "precedence": -1,
+        "lang": 1,
+        "direction": 0
+    }
+]

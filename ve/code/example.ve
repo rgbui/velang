@@ -1,0 +1,117 @@
+
+def a=1;
+def a:string='eeessssxxx';
+
+def b=20;
+def a:string='
+
+   @{b+g}
+
+';
+
+def a=Math.PI*2;
+const a=2;
+def a:number=4;
+def a=a+b;
+c=a+b;
+def obj={a:3,b:5};
+def list:int[]=[1,2,3,4];
+list.find(x->x==3);
+def o=(x:number)=>{
+    return x+2;
+}
+def a:any=[1,"string"];
+def cc;
+def gg:number;
+def c:bool=true;
+
+if(a>b){}
+else if(c==d){ }
+else{ }
+
+if(a>b) c=d;
+else if(g>k) k=2;
+for(def i=0;i<10;i++)
+{ 
+
+}
+while(true){
+
+};
+
+do {
+
+}
+while(true);
+switch(a)
+{
+    case 1:
+    break;
+    default:
+    break;
+};
+try {
+
+}
+catch(e:Exception)
+{ 
+
+}
+finally {
+
+}
+
+def gg=/#fff/color;
+def date=/2008-12-25/;
+def g=new Array<int>();
+
+def a=b/c/d;
+
+word ：word
+word word;
+
+
+def obj:{
+    d:date,
+    gg:color,
+    reg:regex,
+    gg:string,
+    url:url,
+    path:path,
+    point:point,
+    k:bool
+}=
+{
+    d:/2008-12-25/date,
+    gg:/#fff/color,
+    reg:/^[\d]+$/regex,
+    url:"ejfis",
+    gg:/fff/string,
+    url:/http:\/\/www.baidu.com/url,
+    url:url("http://www.baidu.com"),
+    path:/c:\/\/gk\dd/path,
+    point:Point(5,5),
+    k:true,
+}
+
+b/c/d 和 /2008-12-25/date 区别是第一个斜线前面是否是word
+
+提取信息:
+/2008-12-25/date  : 整体作为一个token
+|week=1,monday=2| : 与{}处理一样
+
+enum week{
+    mondya
+}
+
+def a=(x:<week=1,monday=2>)=>void;
+
+def exp=do(a<b,c>d);
+
+fun max<T,U>(t:T,u:U)
+{ 
+
+}
+
+args:{ x:Int,b:Number,g:|week=1,monday=2|,gk:{a:Int,b:Number,gk:(x:number,y:number)=>void},fn:(x:number)=>void}
+
