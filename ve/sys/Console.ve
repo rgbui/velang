@@ -1,5 +1,0 @@
-package Ve{
-    export interface Console{
-        log(message:any):void;
-    }
-}

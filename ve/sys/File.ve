@@ -1,6 +1,0 @@
-package Ve{
-   export  interface File{
-	    new(filePath:string):File;
-        content:string;
-   }
-}

@@ -1,6 +1,0 @@
-package Ve {
-    [nick("url")]
-    export interface Url {
-        new(val:string):url;     
-    }
-}

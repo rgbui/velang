@@ -1,5 +1,0 @@
-package Ve{
-    export interface Object{
-        
-    }
-}
