@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>基础类型-ve语言</title>
+    <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assert/style/style.css" />
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+</head>
+<body>
+    
+<div class="header">
+    <div class="header-wrapper">
+        <a href='/' class="logo">VE</a>
+        <a href='/index.html'  title='介绍'>介绍</a>
+        <a href='/docs/辅导教程/5分钟上手ve语言.html' class="active" title='文档'>文档</a>
+        <a href='/scenario.html'  title='应用'>应用</a>
+        <a href='/contact.html'  title='联系'>联系</a>
+    </div>
+</div>
+    <div class="container doc-container">
+        <div class="navs">
+            <ol>
+                     <li>
+                           <a href='javascript:void' ><span>手册指南</span></a>
+                           <ul>
+                              <li><a   href='/docs/手册指南/函数.html' title='函数'><span>函数</span></a></li><li><a   href='/docs/手册指南/变量声明.html' title='变量声明'><span>变量声明</span></a></li><li><a   href='/docs/手册指南/命名空间.html' title='命名空间'><span>命名空间</span></a></li><li><a class='active'  href='/docs/手册指南/基础类型.html' title='基础类型'><span>基础类型</span></a></li><li><a   href='/docs/手册指南/异常处理.html' title='异常处理'><span>异常处理</span></a></li><li><a   href='/docs/手册指南/接口.html' title='接口'><span>接口</span></a></li><li><a   href='/docs/手册指南/模块.html' title='模块'><span>模块</span></a></li><li><a   href='/docs/手册指南/泛型.html' title='泛型'><span>泛型</span></a></li><li><a   href='/docs/手册指南/类.html' title='类'><span>类</span></a></li><li><a   href='/docs/手册指南/运算符.html' title='运算符'><span>运算符</span></a></li>
+                           </ul>
+                         </li><li>
+                           <a href='javascript:void' ><span>辅导教程</span></a>
+                           <ul>
+                              <li><a   href='/docs/辅导教程/5分钟上手ve语言.html' title='5分钟上手ve语言'><span>5分钟上手ve语言</span></a></li>
+                           </ul>
+                         </li>                     
+                     </ol>
+        </div>
+        <div class="content">
+            <h1 id="基础类型">基础类型</h1>
+<h2 id="介绍">介绍</h2>
+<p>为了让程序有价值，我们需要能够处理最简单的数据单元：数字，字符串，结构体，布尔值等。 像其它主流语言(JavaScript,C#,Java)一样,Ve提供了常用的数据类型,但在定义类型上类似于TypeScript。</p>
+<h2 id="数字">数字</h2>
+<p>和JavaScript一样,Ve里数字分为整型(int)和带小数点的小数型(number)</p>
+<pre><code>def a: int = 300;
+def b = 3e2;
+def c: number = 100.2;</code></pre>
+<h2 id="文本">文本</h2>
+<p>程序的一项常用操作是处理网页或服务器端的文本数据。 像其它语言里一样，我们使用 string表示文本数据类型。 和JavaScript一样，可以使用双引号（ "）或单引号（'）表示字符串。</p>
+<pre><code>def name: string='Bill Gates';</code></pre>
+<p>除了以上,我们还支持文本内部跨行显示和和模板文本</p>
+<pre><code>def a: string = 'eeeee';
+def b: string = 'eee
+eee';
+def c: string = '两个@{a},@{b}';
+def d = '两个'+a+','+b;
+print(d==c) //true</code></pre>
+<p>为了开发方便,Ve扩展了文本处理的范围,增加了日期、正则、颜色、网址和路径子文本类型。<br />
+定义语法:</p>
+<pre><code>def 变量名 = /文本内容/类型;</code></pre>
+<p>示例:</p>
+<pre><code>def url = //http://www.baidu.com/url;
+def color = /#fff/color;
+print(color is Color); //true</code></pre>
+<h2 id="布尔">布尔</h2>
+<p>最基本的数据类型就是简单的true/false值，在其它语言如Java里叫boolean,在Ve我们用bool来定义。</p>
+<pre><code>def isDone: bool = true;
+def sex = false;</code></pre>
+<h2 id="对象">对象</h2>
+<p>Ve中的对象类型类似于JavaScript中JSON</p>
+<pre><code>def person = {
+  firstName: "Bill",
+  lastName : "Gates",
+  id       : 678,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+print(person.firstName) // Bill
+print(person.fullName()) // Bill Gates</code></pre>
+<h2 id="any">Any</h2>
+<p>any类型表示任意类型，也可以理解为无类型，所有的数据类型都继承该类型Any </p>
+<pre><code>def a: any=123;
+def b:any=true;</code></pre>
+<h2 id="void">Void</h2>
+<p>某种程度上来说，void类型像是与any类型相反，它表示没有任何类型。 当一个函数没有返回值时，你通常会见到其返回值类型是 void：</p>
+<pre><code>fun warnUser(): void {
+    print("This is my warning message");
+}</code></pre>
+<h2 id="null">null</h2>
+<p>和其它语言一样,Ve中的null 特指对象的值未设置，是所有类型的子类型。</p>
+<pre><code>def a=null;
+print(a):// null
+print(a.toString())//error...
+print(a?.toString())//null
+print(a is null)//true
+a?=1;//如果a为空，则赋值为1</code></pre>
+<h2 id="枚举">枚举</h2>
+<p>枚举默认情况下，从0开始为元素编号。 你也可以手动的指定成员的数值。  <br />
+ 被指定的元素值不参于元素编号。</p>
+<pre><code>  enum Color {Red, Green, Blue}
+  def c:Color=Color.Red;
+  print(c);//0 
+  print(c.toString())://Red
+  //当然也可以指定值
+  enum Color {Red=2, Green=0, Blue=3}
+  print(Color.Red)//Red
+  print((int)Color.Red)// 2
+  print(Color.Red.toString());// Red</code></pre>
+<h2 id="数组">数组</h2>
+<p>Ve和其它语言一样可以操作数组元素。</p>
+<pre><code>def persons:string  = ["张三", "李四", "王五"];
+print(persons[1]) //李四</code></pre>
+<p>但是数组里面的数据类型必须一致</p>
+<pre><code>def persons:string  = ["张三", "李四", 5]; //error 5 不是文本类型
+def persons:any  = ["张三", "李四", 5]; //ok ,数组里面的每一项都是any类型
+def persons  = ["张三", "李四", "王五"]; //自动推断为string[]
+def persons  = ["张三", "李四", 5]; //自动推为any[]
+def arr:{a:string,b:number}[]=[];//定义一个数组，里面的每一项都是{a:string,b:number}类型</code></pre>
+        </div>
+    </div>
+    <div class="footer">
+    <div class="links">
+        <label>友链</label>
+        <a href="https://www.bootcss.com" target="_blank">Bootstrap中文网</a><a href="https://www.gulpjs.com.cn"
+            target="_blank">Gulp中文网</a><a href="https://www.webpackjs.com" target="_blank">WebPack中文网</a><a
+            href="https://www.jquery123.com" target="_blank">jQuery 中文文档</a><a href="https://www.npmjs.cn"
+            target="_blank">npm中文文档</a><a href="https://www.sasscss.com" target="_blank">SASS中文网</a>
+    </div>
+    <div class="copyright">
+        <span>遵循 MIT 开源协议</span>
+        <span>Copyright © 2017-2019 Kan Kan</span>
+    </div>
+</div>
+</body>
+<script type='text/javascript'>
+
+
+</script>
+
+</html>

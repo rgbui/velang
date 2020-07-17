@@ -1,0 +1,16 @@
+
+
+package Ve.Core;
+#alias('alias');
+out decorate interface Alias
+{
+    ctor(name:string):Alias;
+}
+#alias('deprecated');
+out decorate interface Deprecated{
+    ctor(message:string):Deprecated
+}
+#alias('only')
+out decorate interface Only{
+    ctor(name:string):Only;
+}

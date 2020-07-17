@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>运算符-ve语言</title>
+    <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/fontawesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assert/style/style.css" />
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+</head>
+<body>
+    
+<div class="header">
+    <div class="header-wrapper">
+        <a href='/' class="logo">VE</a>
+        <a href='/index.html'  title='介绍'>介绍</a>
+        <a href='/docs/辅导教程/5分钟上手ve语言.html' class="active" title='文档'>文档</a>
+        <a href='/scenario.html'  title='应用'>应用</a>
+        <a href='/contact.html'  title='联系'>联系</a>
+    </div>
+</div>
+    <div class="container doc-container">
+        <div class="navs">
+            <ol>
+                     <li>
+                           <a href='javascript:void' ><span>手册指南</span></a>
+                           <ul>
+                              <li><a   href='/docs/手册指南/函数.html' title='函数'><span>函数</span></a></li><li><a   href='/docs/手册指南/变量声明.html' title='变量声明'><span>变量声明</span></a></li><li><a   href='/docs/手册指南/命名空间.html' title='命名空间'><span>命名空间</span></a></li><li><a   href='/docs/手册指南/基础类型.html' title='基础类型'><span>基础类型</span></a></li><li><a   href='/docs/手册指南/异常处理.html' title='异常处理'><span>异常处理</span></a></li><li><a   href='/docs/手册指南/接口.html' title='接口'><span>接口</span></a></li><li><a   href='/docs/手册指南/模块.html' title='模块'><span>模块</span></a></li><li><a   href='/docs/手册指南/泛型.html' title='泛型'><span>泛型</span></a></li><li><a   href='/docs/手册指南/类.html' title='类'><span>类</span></a></li><li><a class='active'  href='/docs/手册指南/运算符.html' title='运算符'><span>运算符</span></a></li>
+                           </ul>
+                         </li><li>
+                           <a href='javascript:void' ><span>辅导教程</span></a>
+                           <ul>
+                              <li><a   href='/docs/辅导教程/5分钟上手ve语言.html' title='5分钟上手ve语言'><span>5分钟上手ve语言</span></a></li>
+                           </ul>
+                         </li>                     
+                     </ol>
+        </div>
+        <div class="content">
+            <h1 id="运算符">运算符</h1>
+<h2 id="介绍">介绍</h2>
+<p>运算符是一种告诉编译器执行特定的数学或逻辑操作的符号。Ve 有丰富的内置运算符，分类如下：</p>
+<ul>
+<li>算术运算符 </li>
+<li>关系运算符</li>
+<li>逻辑运算符</li>
+<li>赋值运算符 </li>
+<li>其他运算符</li>
+</ul>
+<h2 id="算术运算符">算术运算符</h2>
+<p>算术运算符用在数学表达式中，它们的作用和在数学中的作用一样。下表列出了所有的算术运算符。<br />
+表格中的实例假设整数变量A的值为10，变量B的值为20：<br />
+|操作符|描述|例子<br />
+|-|-|-|<br />
+|+|加法 - 相加运算符两侧的值|A + B 等于 30<br />
+|-|减法 - 左操作数减去右操作数|A – B 等于 -10<br />
+|*|乘法 - 相乘操作符两侧的值|A * B等于200<br />
+|/|除法 - 左操作数除以右操作数|    B / A等于2<br />
+|%|取余 - 左操作数除以右操作数的余数|B%A等于0<br />
+|++|自增: 操作数的值增加1|    B++ 或 ++B 等于 21（区别详见下文）<br />
+|--|自减: 操作数的值减少1|    B-- 或 --B 等于 19（区别详见下文）</p>
+<pre><code>def A = 10;
+def B = 20;
+def C = A * B;
+print(C); // 200</code></pre>
+<p>前缀自增自减法(++a,--a): 先进行自增或者自减运算，再进行表达式运算。</p>
+<p>后缀自增自减法(a++,a--): 先进行表达式运算，再进行自增或者自减运算 <br />
+示例：</p>
+<pre><code>def a = 5;
+def b = 5;
+def x = 2 * ++a;
+def y = 2 * b++;
+print{a,x}); //{ a: 6, x: 12 }
+print{b,y}); //{ b: 6, y: 10 }</code></pre>
+<h2 id="关系运算符">关系运算符</h2>
+<p>表格中的实例整数变量A的值为10，变量B的值为20：<br />
+|操作符|描述|例子<br />
+|-|-|-|<br />
+|==|检查如果两个操作数的值是否相等，如果相等则条件为真|A == B）为假。|<br />
+|!=|检查如果两个操作数的值是否相等，如果值不相等则条件为真。|(A != B) 为真。|<br />
+|&gt;|检查左操作数的值是否大于右操作数的值，如果是那么条件为真。|（A&gt; B）为假。|<br />
+|<|检查左操作数的值是否小于右操作数的值，如果是那么条件为真。|（A< B）为真|
+|>=|检查左操作数的值是否大于或等于右操作数的值，如果是那么条件为真。|（A&gt; = B）为假。|<br />
+|&lt;=|检查左操作数的值是否小于或等于右操作数的值，如果是那么条件为真。|（A &lt;= B）为真。|<br />
+示例:</p>
+<pre><code>def A = 10;
+def B = 20;
+print(A == B); // false</code></pre>
+<h2 id="逻辑运算符">逻辑运算符</h2>
+<p>下表列出了逻辑运算符的基本运算，假设布尔变量A为真，变量B为假<br />
+|操作符|描述|例子<br />
+|-|-|-|<br />
+|&amp;&amp;    |称为逻辑与运算符。当且仅当两个操作数都为真，条件才为真。|(A &amp;&amp; B）为假。|<br />
+| || |称为逻辑或操作符。如果任何两个操作数任何一个为真，条件为真。|(A || B)为真。|<br />
+|!|称为逻辑非运算符。用来反转操作数的逻辑状态。如果条件为true，则逻辑非运算符将得到false。|!(A &amp;&amp; B）为真。|<br />
+示例:</p>
+<pre><code>def A = true;
+def B = false;
+print(!(A &amp;&amp; B)); // true</code></pre>
+<h2 id="赋值运算符">赋值运算符</h2>
+<p>下面是Ve语言支持的赋值运算符：<br />
+|操作符|描述|例子<br />
+|-|-|-|<br />
+|=|    简单的赋值运算符，把右边操作数的值赋给左边操作数|   C = A + B 将把 A + B 的值赋给 C<br />
+|+=    |加且赋值运算符，把右边操作数加上左边操作数的结果赋值给左边操作数|  C += A 相当于 C = C + A<br />
+|-=    |减且赋值运算符，把左边操作数减去右边操作数的结果赋值给左边操作数|  C -= A 相当于 C = C - A<br />
+|*=|    乘且赋值运算符，把右边操作数乘以左边操作数的结果赋值给左边操作数|   C *= A 相当于 C = C * A<br />
+|/=    |除且赋值运算符，把左边操作数除以右边操作数的结果赋值给左边操作数|  C /= A 相当于 C = C / A<br />
+|%=    |求模且赋值运算符，求两个操作数的模赋值给左边操作数  |C %= A 相当于 C = C % A<br />
+|?=|null赋值|a?='123' 如果a为null,则a 当前取会为'123'</p>
+<h2 id="其它运算符">其它运算符</h2>
+<h4 id="其他运算符">其他运算符</h4>
+<p>|运算符|    描述| 实例<br />
+|-|-|-|<br />
+|??|null条件|def b=a??'123';如果a为null,则b='123',否则b=a<br />
+|?:|    条件表达式   |如果条件为真 ? 则为 X : 否则为 Y<br />
+|is|判断对象是否为某一类型。|    If( Ford is Car) // 检查 Ford 是否是 Car 类的一个对象。<br />
+|as|强制转换，即使转换失败也不会抛出异常。|<br />
+|match|文本格式判断|判断当前文本是否满格式 bool isMath=c match new Regex('[\d]+')<br />
+|contain|是否包含|def a= '123' contain '1'<br/> def a=int[]{1,2,3} contain 1</p>
+<h2 id="ve中的运算符优先级">Ve中的运算符优先级</h2>
+<p>|类别 |    运算符|    结合性 <br />
+|-|-|-|<br />
+|后缀|     () [] -&gt; . ++ - -  |    从左到右 <br />
+|一元     |+ - !  ++ - - (type)|从右到左 <br />
+|乘除 |    * / %   |从左到右 <br />
+|加减 |    + -     |从左到右 <br />
+|关系 |    < <= > &gt;= |从左到右 <br />
+|相等 |    ==, !=, is, as ,match contain,not is,not match,not contain| 从左到右 <br />
+|逻辑与 AND |    &amp;&amp;  |从左到右 <br />
+|逻辑或 OR ||||从左到右 <br />
+|条件 |    ?: ??   |从右到左 <br />
+|赋值 |    = ?= += -= *= /= % |    从右到左 <br />
+|逗号 |    ,   |从左到右 </p>
+        </div>
+    </div>
+    <div class="footer">
+    <div class="links">
+        <label>友链</label>
+        <a href="https://www.bootcss.com" target="_blank">Bootstrap中文网</a><a href="https://www.gulpjs.com.cn"
+            target="_blank">Gulp中文网</a><a href="https://www.webpackjs.com" target="_blank">WebPack中文网</a><a
+            href="https://www.jquery123.com" target="_blank">jQuery 中文文档</a><a href="https://www.npmjs.cn"
+            target="_blank">npm中文文档</a><a href="https://www.sasscss.com" target="_blank">SASS中文网</a>
+    </div>
+    <div class="copyright">
+        <span>遵循 MIT 开源协议</span>
+        <span>Copyright © 2017-2019 Kan Kan</span>
+    </div>
+</div>
+</body>
+<script type='text/javascript'>
+
+
+</script>
+
+</html>

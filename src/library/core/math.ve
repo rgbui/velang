@@ -1,0 +1,102 @@
+package Ve.Core;
+out class Math{
+    private ctor():Math;
+    //返回圆周率（约等于3.14159）。
+    static PI:number;
+    //返回算术常量 e，即自然对数的底数（约等于2.718）。
+    static E:number;
+    // 返回 2 的自然对数（约等于0.693）。
+    static LN2:number;
+    // 返回 10 的自然对数（约等于2.302）。
+    static LN10:number;
+    // 返回以 2 为底的 e 的对数（约等于 1.414）。
+    static LOG2E:number;
+    // 返回以 10 为底的 e 的对数（约等于0.434）。
+    static LOG10E:number;
+    // 返回返回 2 的平方根的倒数（约等于 0.707）。
+    static SQRT1_2:number;
+    // 返回 2 的平方根（约等于 1.414）。
+    static SQRT2:number;
+
+    static cos(angle:number):number;
+    static sin(angle:number):number;
+    static tan(angle:number):number;
+    static acos(num:number):number;
+    static asin(num:number):number;
+    static atan(num:number):number;
+    static atan2(num:number):number;
+
+    static exp(num:number):number;
+    static log(num:number):number;
+    static pow(num:number):number;
+    static sqrt(num:number):number;
+    static max(...args:number[]):number;
+    static min(...args:number[]):number;
+
+    static abs(num:number):number;
+    static ceil(num:number):int;
+    static floor(num:number):int;
+    static round(num:number):int;
+
+}
+
+out Class Random{
+
+    private ctor():Random;
+    static nextInt(max:int,min:int=0):int;
+    static nextBool():bool;
+    static nextNumber():number;
+    /**
+    * 随机指定位数的数字  
+    */
+    static number(digit:int):int;
+    /**随机文体，包含数字，字母
+    * @param digit 表示指定位数
+    */
+    static chars(digit:int):string;
+}
+
+out Class Point{
+    ctor(x:number,y:number);
+    x:number;
+    y:number;
+    distanceTo(p1:point):number;
+    operator * (factor:number):Point;
+    operator + (other:Point):Point;
+    operator - (other:Point):Point;
+    operator == (other:Point):bool;
+    operator != (other:Point):bool;
+}
+
+out Class Rectangle{
+     ctor(left:number,top:number,width:number,height:number):Rectangle;
+     ctor(p1:Point,p2:Point):Rectangle;
+     top:number;
+     left:number;
+     width:number;
+     height:number;
+     readonly area:number;
+     readonly right:number;
+     readonly bottom:number;
+     readonly topLeft:Point;
+     readonly topRight:Point;
+     readonly bottomLeft:Point;
+     readonly bottomRight:Point;
+     boundingBox(other:Rectangle):Rectangle;
+     containsPoint(point:Point):bool;
+     containsRectangle(other:Rectangle):bool;
+     intersection(other:Rectangle):Rectangle;
+     intersects(other:Rectangle):bool;
+}
+
+out Class Range{
+    ctor(min:number,max:number):Range;
+    ctor(min:number,minBoundary:bool,max:number,maxBoundary:bool):Range;
+    min:number;
+    minBoundary:bool=true;
+    max:number;
+    maxBoundary:bool=true;
+    contains(num:number):bool;
+    intersection(other:Range):Range;
+    intersects(other:Range):bool;
+}

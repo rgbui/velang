@@ -1,0 +1,12 @@
+package Ve.Core;
+#alias('console')
+out class Console{
+    private ctor();
+    static assert(predict:bool);
+    static print(msg:string);
+    static log(msg:string);
+    static warn(msg:string);
+    static error(error:Error);
+    #only('error1')
+    static error(error:string);
+}

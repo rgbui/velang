@@ -1,0 +1,149 @@
+body,
+html {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    color: #304455;
+    background-color: #fff;
+    text-align: center;
+}
+
+* {
+    font-size: 14px;
+}
+
+a {
+    color: #42b983;
+
+    &:hover {
+        text-decoration: #42b983;
+        color: #42b983;
+    }
+}
+
+.header {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    height: 40px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    text-align: center;
+
+    &-wrapper {
+        width: 1200px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 40px;
+
+        a {
+            margin: 0px 20px;
+            display: inline-block;
+            text-decoration: none;
+            color: #42b983;
+
+            &.active {
+                text-decoration: underline
+            }
+
+            &:hover {
+                text-decoration: underline
+            }
+        }
+    }
+}
+
+.footer {
+    padding: 40px 0;
+    color: #fff;
+    text-align: center;
+    background-color: #444;
+
+    .links {
+        display: inline-block;
+        width: 1200px;
+        margin-bottom: 10px;
+        text-align: left;
+
+        >* {
+            display: inline-block;
+            margin-right: 3px;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+
+    .copyright {
+        display: inline-block;
+        width: 1200px;
+        text-align: left;
+
+        >* {
+            display: inline-block;
+            margin-right: 3px;
+        }
+    }
+}
+
+.container {
+    padding: 30px 0px;
+    width: 1200px;
+    text-align: left;
+    display: inline-block;
+}
+
+.doc-container {
+    min-height: 400px;
+
+    .navs {
+        width: 200px;
+        float: left;
+
+        ol {
+            display: block;
+
+            li {
+                list-style: none;
+
+                a {
+                    display: block;
+                    height: 24px;
+                    line-height: 24px;
+                    font-weight: bold;
+                    text-align: left;
+                    color: #333;
+
+                    &:hover {
+                        color: #333;
+                        text-decoration: none;
+                    }
+                }
+
+                ul {
+                    display: block;
+                    li {
+                        a {
+                            display: block;
+                            height: 24px;
+                            line-height: 24px;
+                            text-align: left;
+                            text-decoration: none;
+                            &:hover,
+                            &.active {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .content {
+        width: 1000px;
+    }
+}

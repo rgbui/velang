@@ -1,0 +1,16 @@
+@{
+function className(name)
+{
+if(url.indexOf(name)>-1)return 'class="active"';
+return '';
+}
+}
+<div class="header">
+    <div class="header-wrapper">
+        <a href='/' class="logo">VE</a>
+        <a href='/index.html' @className("index") title='介绍'>介绍</a>
+        <a href='/docs/辅导教程/5分钟上手ve语言.html' @className("docs") title='文档'>文档</a>
+        <a href='/scenario.html' @className("scenario") title='应用'>应用</a>
+        <a href='/contact.html' @className("contact") title='联系'>联系</a>
+    </div>
+</div>

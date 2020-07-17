@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "outFile": "../../dist/ved.js",
+        "declaration": true,
+        "target": "es6",
+        "removeComments":true,
+        "sourceMap": true,
+        "charset": "utf8"
+    }
+}

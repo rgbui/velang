@@ -1,0 +1,190 @@
+.ved-editor {
+    user-select: none;
+    border: 1px solid #eee;
+}
+
+.ved-editor-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.ved-editor textarea {
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    outline: none !important;
+    resize: none;
+    border: none;
+    overflow: hidden;
+    color: transparent;
+    background-color: transparent;
+    width: 1px;
+    height: 1px;
+    letter-spacing: 0px;
+    pointer-events: none;
+}
+
+.ved-editor-cursor {
+    width: 2px;
+    margin-left: -1px;
+    position: absolute;
+    background-color: red;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+.ved-editor-hang {
+    border: 1px solid #eee;
+    padding: 5px;
+    position: absolute;
+    background-color: #fff;
+}
+
+.ved-editor-section {}
+
+.ved-editor-selection-row {
+    position: absolute;
+    pointer-events: none;
+    background-color: rgba(122, 122, 122, 0.4);
+}
+
+.ved-editor-content {
+    box-sizing: border-box;
+    min-height: 100%;
+}
+
+.ved-editor-content .ved-line {
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+}
+
+.ved-editor-content .ved-line span {
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+}
+
+.ved-editor-intellisense {
+    position: absolute;
+    width: 330px;
+    max-height: 220px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid rgb(200, 200, 200);
+    background-color: rgb(243, 243, 243);
+    padding: 5px 0px;
+}
+
+.ved-editor-intellisense-marked {
+    padding: 0px 10px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    color: #000000;
+}
+
+.ved-editor-intellisense-marked:hover {
+    background-color: rgba(200, 200, 200, 0.4);
+}
+
+.ved-editor-intellisense-marked.hover,
+.ved-editor-intellisense-marked.hover:hover {
+    background-color: rgba(200, 200, 200, 0.8);
+}
+
+.ved-editor-intellisense-marked span:first-child {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 1.0;
+}
+
+.ved-editor-intellisense-marked span:nth-child(2) {
+    flex-grow: 1.0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ved-editor-intellisense-marked:hover .ved-editor-intellisense-marked span:nth-child(2) {
+    text-decoration: underline;
+}
+
+.ved-editor-intellisense-marked span:last-child {
+    flex-grow: 1.0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+/**主题 light*/
+
+.ved-editor-light {}
+
+.ved-editor-light .ved-line .ved-token-white {}
+
+.ved-editor-light .ved-line .ved-token-comment {
+    color: #008000;
+}
+
+.ved-editor-light .ved-line .ved-token-string {
+    color: #a31515;
+}
+
+.ved-editor-light .ved-line .ved-token-number {
+    color: #098658;
+}
+
+.ved-editor-light .ved-line .ved-token-operators {
+    color: #000000;
+}
+
+.ved-editor-light .ved-line .ved-token-word {
+    color: #001080;
+}
+
+.ved-editor-light .ved-line .ved-token-delimiter {
+    color: #000000;
+}
+
+.ved-editor-light .ved-line .ved-token-text {
+    color: #000000;
+}
+
+.ved-editor-light .ved-line .ved-token-variable {
+    color: #001080;
+}
+
+.ved-editor-light .ved-line .ved-token-type {
+    color: #267f99;
+}
+
+.ved-editor-light .ved-line .ved-token-keywords {
+    color: #0000ff
+}
+
+.ved-editor-light .ved-line .ved-token-keywords-control {
+    color: #af00db;
+}
+
+.ved-editor-light .ved-line .ved-token-error {
+    position: relative;
+}
+
+.ved-editor-light .ved-line .ved-token-error::before {
+    content: '';
+    position: absolute;
+    bottom: -0.125em;
+    width: 100%;
+    height: 0.25em;
+    background: -webkit-linear-gradient(315deg, transparent, transparent 45%, #dc3912, transparent 55%, transparent 100%), -webkit-linear-gradient(45deg, transparent, transparent 45%, #dc3912, transparent 55%, transparent 100%);
+    background: linear-gradient(135deg, transparent, transparent 45%, #dc3912, transparent 55%, transparent 100%), linear-gradient(45deg, transparent, transparent 45%, #dc3912, transparent 55%, transparent 100%);
+    background-size: 0.5em 0.5em;
+    background-repeat: repeat-x, repeat-x;
+}

@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "outFile": "../dist/ve.js",
+        "declaration": true,
+        "target": "es6",
+        "removeComments": false,
+        "sourceMap": true,
+        "charset": "utf8"
+    },
+    "exclude": [
+        "ved/**/**.ts"
+    ]
+}

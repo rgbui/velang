@@ -1,0 +1,26 @@
+package Ve.Core;
+#alias('any');
+out interface Any{
+     readonly isNull:bool;
+     readonly isNotNull:bool;
+     toString():string;
+     operator ==(other:bool):bool;
+     operator !=(other:bool):bool;
+}
+#alias('null');
+out interface Null{
+  
+}
+#alias('bool')
+out interface Bool{
+   ctor();
+   ctor(value:bool):Bool;
+   operator &&(other:bool):bool;
+   operator ||(other:bool):bool;
+}
+out interface Object{
+    ctor();
+}
+out interface Console{
+    print(str:string):void;
+}

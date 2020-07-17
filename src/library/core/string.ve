@@ -1,0 +1,40 @@
+package Ve.Core;
+#alias('string')
+out interface String{
+    ctor();
+    ctor(val:string);
+    readonly length:int;
+    readonly isEmpty:bool;
+    readonly isNotEmpty:bool;
+    readonly chars:string[];
+    replace(old:String,str:string):string;
+    #only("replace1");
+    replace(match:Regex,str:string):string;
+    contains(str:string):bool;
+    indexOf(str:String):int;
+    lastIndexOf(str:String):int;
+    toLower():string;
+    toUpper():string;
+    padLeft(width:int,padding:string=' '):string;
+    padRight(width:int,padding:string=' '):string;
+    match(regex:Regex):string;
+    matchs(regex:Regex):string[];
+    isMatch(regex:Regex):bool;
+    split(str:string):string[];
+    substring(startIndex:int,endIndex:int):string;
+    reserve():string;
+    startsWith(str:string):bool;
+    endsWith(str:string):bool;
+    trim():string;
+    trimLeft():string;
+    trimRight():string;
+    toNumber(defaultValue=0):number;
+    toInt(defaultValue=0):int;
+    operator +(other:string):string;
+}
+out interface Regex{
+    ctor(regexStr:string);
+    hasMatch(input:string):bool;
+    match(input:string):string;
+    matchs(input:string):string[];
+}

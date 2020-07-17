@@ -1,0 +1,15 @@
+package Ve.Core;
+/**
+* 错误
+*/
+out class Error{
+    data:any;
+    //错误码
+    core:int;
+    //帮助链接
+    link:string;
+    //错误信息
+    message:string;
+    source:string;
+    stack:string;
+}

@@ -1,0 +1,60 @@
+package Ve.Core;
+#alias('number')
+out interface Number{
+    ctor():number;
+    ctor(str:string):number;
+    ctor(value:number):number;
+    readonly isNegative:bool;
+    readonly isNaN:bool;
+    //返回当前数的绝对值
+    abs():number;
+    ceil():int;
+    floor():int;
+    round():int;
+    //返回this的小数点字符串表示形式
+    toFixed(fractionDigits:int):string;
+    toInt():int;
+    operator %(other:number):number;
+    operator *(other:number):number;
+    operator +(other:number):number;
+    operator -(other:number):number;
+    operator /(other:number):double;
+    operator <(other:number):bool;
+    operator <=(other:number):bool;
+    operator >(other:number):bool;
+    operator >=(other:number):bool;
+    static parse(str:string):number;
+    static tryParse(str:string,defaultValue:number=0):number;
+}
+
+#alias('int')
+out interface Int extends Number{
+    ctor();
+    ctor(str:string):Int; 
+    ctor(value:int):int;
+    //偶数
+    readonly isEven:bool;
+    //奇数
+    readonly isOdd:bool;
+    operator %(other:number):number;
+    operator *(other:number):number;
+    operator +(other:number):number;
+    operator -(other:number):number;
+    operator /(other:number):double;
+    operator <(other:number):bool;
+    operator <=(other:number):bool;
+    operator >(other:number):bool;
+    operator >=(other:number):bool;
+    static parse(str:String):int;
+    static tryParse(str:string,defaultValue:int=0):int;
+}
+#alias('double')
+out interface Double extends Number{
+     ctor():Double;
+     ctor(str:string):Double;
+     operator %(other:number):double;
+     operator *(other:number):double;
+     operator +(other:number):double;
+     operator -(other:number):double;
+     operator /(other:number):double;
+}

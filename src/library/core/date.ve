@@ -1,0 +1,64 @@
+
+package Ve.Core;
+#alias('date')
+out interface Date{
+    ctor():Date;
+    ctor(dateFormat:string):Date;
+    ctor(ticks:number):Date;
+    ctor(year:int,month:int,day:int,hour:int,minute:int,second:int,millis:int):Date;
+    //1970年1月1日 （UTC/GMT的午夜）开始所经过的秒数
+    ticks:int;
+    year:int;
+    //本月1..12
+    month:int;
+    //每月的一天1..31
+    day:int;
+    //一年中的第几天
+    readonly yearday:int;
+    //一星期中的星期几
+    readonly weekday:int;
+    //一年中的第几周
+    readonly week:int;
+    //一天中的小时，以24小时制0..23
+    hour:int;
+    //分钟0...59
+    minute:int;
+    //秒0...59
+    second:int;
+    //微秒0...999
+    millis:int;
+    //年 简写
+    readonly y:int;
+    //月 简写
+    readonly m:int;
+    //周 简写
+    readonly w:int;
+     //日 简写
+    readonly d:int;
+     //时 简写
+    readonly h:int;
+     //分钟 简写
+    readonly min:int; 
+     //秒 简写
+    readonly s:int;
+     //毫秒 简写
+    readonly ms:int;
+    //加上几天（相隔），示例 :时间加上2天
+    add(num:int,unit="day"):date;
+    //加上几天 示例 :当前时间加上2.5天
+    adds(num:number,unit="day"):date;
+    //当前时间相差2.5天
+    sub(to:date,unit='day'):int;
+    subs(to:date,unit='day'):number;
+    #only("toString1")
+    toString(format:string):string;
+    operator <(other:date):bool;
+    operator <=(other:date):bool;
+    operator >(other:date):bool;
+    operator >=(other:date):bool;
+    static parse(string:string,format="yyyy-mm-dd hh:mm:ss.zzz"):date;
+    static now():date;
+}
+out interface Duration{
+
+}
