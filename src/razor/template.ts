@@ -36,7 +36,7 @@ namespace Ve.Lang.Razor {
             }`;
             try {
                 var gl = typeof window == 'undefined' ? global : window;
-                var fun = gl.eval(`(${funCode})`);
+                var fun = (gl as any).eval(`(${funCode})`);
                 return fun.apply(obj, [ViewBag, ...maps.map(x => x.value)])
             }
             catch (e) {
