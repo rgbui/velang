@@ -2144,6 +2144,9 @@ var Ve;
                 var inferType;
                 var searchKey = (key, last) => {
                     if (inferType) {
+                        /**
+                         * 推断unit类型
+                         */
                         if (inferType.name) {
                             if (last == true && callExpress instanceof Lang.MethodCallExpress) {
                                 var cla = node.queryName(inferType.name, new List(Lang.NodeType.class));
@@ -2177,6 +2180,54 @@ var Ve;
                                 var cla = node.queryName(inferType.name, new List(Lang.NodeType.class));
                                 if (!cla) {
                                     throw `not found class name:${inferType.name}`;
+                                }
+                                var pro = cla.propertys.find(x => x instanceof Lang.ClassProperty && x.isPublic && !x.isStatic && x.isName(key));
+                                if (pro) {
+                                    inferType = pro.inferType();
+                                }
+                                else {
+                                    throw `this class ${cla.fullNames.first()} not found ${key} `;
+                                }
+                            }
+                        }
+                        else if (inferType.generics.length > 0) {
+                            /***
+                             *  这里处理的是数组类型
+                             *
+                             */
+                            var name = inferType.unionType.name;
+                            if (last == true && callExpress instanceof Lang.MethodCallExpress) {
+                                var cla = node.queryName(name, new List(Lang.NodeType.class));
+                                var pros = cla.propertys.findAll(x => (x instanceof Lang.ClassMethod) && x.isPublic && !x.isStatic && x.name == key);
+                                if (pros.length == 0) {
+                                    throw Lang.Exception.create([Lang.ExceptionCode.notFoundMethod, node, '"@{className}"类中无法找到方法"${name}"', { name: key, className: cla.fullNames.first() }]);
+                                }
+                                var pro = pros.find(x => this.InferTypeMethodCallFunTypeIsCompatibility(callExpress, x, inferType.generics));
+                                if (pro) {
+                                    inferType = pro.inferType().returnType;
+                                }
+                                else {
+                                    throw Lang.Exception.create([Lang.ExceptionCode.notFoundMethod, node, '调用"@{className}"类中的方法"${name}"方法不兼容', { name: key, className: cla.fullNames.first() }]);
+                                }
+                            }
+                            else if (last == true && callExpress instanceof Lang.NewCallExpress) {
+                                var cla = node.queryName(name, new List(Lang.NodeType.class));
+                                var pros = cla.propertys.findAll(x => (x instanceof Lang.ClassMethod) && x.isCtor && x.isPublic);
+                                if (pros.length == 0) {
+                                    throw Lang.Exception.create([Lang.ExceptionCode.notFoundMethod, node, '"@{className}"类中无法找到方法"${name}"', { name: key, className: cla.fullNames.first() }]);
+                                }
+                                var pro = pros.find(x => this.InferTypeMethodCallFunTypeIsCompatibility(callExpress.caller, x, inferType.generics));
+                                if (pro) {
+                                    inferType = pro.inferType().retunType;
+                                }
+                                else {
+                                    throw Lang.Exception.create([Lang.ExceptionCode.notFoundMethod, node, '调用"@{className}"类中的方法"${name}"方法不兼容', { name: key, className: cla.fullNames.first() }]);
+                                }
+                            }
+                            else if (name) {
+                                var cla = node.queryName(name, new List(Lang.NodeType.class));
+                                if (!cla) {
+                                    throw `not found class name:${name}`;
                                 }
                                 var pro = cla.propertys.find(x => x instanceof Lang.ClassProperty && x.isPublic && !x.isStatic && x.isName(key));
                                 if (pro) {
@@ -5873,6 +5924,51 @@ var Ve;
                                     }
                                 }
                             }
+                            else if (inferType.unionType) {
+                                /***
+                                 * 数组泛型类型
+                                 */
+                                if (last == true && callExpress instanceof Lang.MethodCallExpress) {
+                                    var cla = node.queryName(inferType.unionType.name, new List(Lang.NodeType.class));
+                                    var pros = cla.propertys.findAll(x => (x instanceof Lang.ClassMethod) && x.isPublic && !x.isStatic && x.name == key);
+                                    var pro = pros.find(x => Lang.InferType.InferTypeMethodCallFunTypeIsCompatibility(callExpress, x, inferType.generics));
+                                    if (pro) {
+                                        inferType = pro.inferType().retunType;
+                                        var cm = pro;
+                                        var obj = { caller: nameCode };
+                                        callExpress.argements.each((arg, i) => {
+                                            obj[cm.parameters.eq(i).name] = render.express(arg);
+                                        });
+                                        nameCode = this.renderClassProp(pro.onlyName, obj);
+                                    }
+                                }
+                                else if (last == true && callExpress instanceof Lang.NewCallExpress) {
+                                    var cla = node.queryName(inferType.unionType.name, new List(Lang.NodeType.class));
+                                    var pros = cla.propertys.findAll(x => (x instanceof Lang.ClassMethod) && x.isCtor && x.isPublic);
+                                    var pro = pros.find(x => Lang.InferType.InferTypeMethodCallFunTypeIsCompatibility(callExpress.caller, x, inferType.generics));
+                                    if (pro) {
+                                        inferType = pro.inferType().retunType;
+                                        var cm = pro;
+                                        var obj = { caller: nameCode };
+                                        callExpress.caller.argements.each((arg, i) => {
+                                            obj[cm.parameters.eq(i).name] = render.express(arg);
+                                        });
+                                        nameCode = this.renderClassProp(pro.onlyName, obj);
+                                    }
+                                }
+                                else {
+                                    var cla = node.queryName(inferType.unionType.name, new List(Lang.NodeType.class));
+                                    if (!cla) {
+                                        console.log(inferType.name, node, cla);
+                                    }
+                                    var pro = cla.propertys.find(x => x instanceof Lang.ClassProperty && x.isPublic && !x.isStatic && x.isName(key));
+                                    if (pro) {
+                                        inferType = pro.inferType();
+                                        var obj = { caller: nameCode };
+                                        nameCode = this.renderClassProp(pro.onlyName, { caller: nameCode });
+                                    }
+                                }
+                            }
                         }
                         else {
                             names.push(key);
@@ -7706,8 +7802,8 @@ var Ve;
         //ve core library code ...
         Lang.VeLibraryCodes = new Lang.Util.List;
         Lang.VeLibraryCodes.push({ name: '/core/Array.ve', code: `package Ve.Core;
-
 out interface Array<T>{
+        ctor();
         readonly length:int;
         readonly first:T;
         readonly last:T;
@@ -7717,7 +7813,8 @@ out interface Array<T>{
         clear():void;
         exists(item:T):bool;
         #only('exists1')
-        exists(predict:(item:T)->bool):bool;
+        exists(predict:(item:T,at:int)->bool):bool;
+        every(predict:(item:T,at:int)->bool):bool;
         findIndex(item:T):int;
         #only('findIndex1')
         findIndex(predict:(item:T)->bool):bool;
@@ -7729,8 +7826,9 @@ out interface Array<T>{
         find(predict:(item:T,at:int)->bool):T;
         findLast(predict:(item:T,at:int)->bool):T;
         findAll(predict:(item:T,at:int)->bool):T[];
-
+        
         skip(at:int):T[];
+
         limit(at:int,size:int):T[];
         //包括startIndex,但是不包括endIndex
         range(startIndex:int,endIndex:int):T[];
@@ -7777,24 +7875,49 @@ out interface Null{
 }
 #alias('bool')
 out interface Bool{
+   ctor();
+   ctor(value:bool):Bool;
    operator &&(other:bool):bool;
    operator ||(other:bool):bool;
+}
+out interface Object{
+    ctor();
+}
+out interface Console{
+    print(str:string):void;
+}` });
+        Lang.VeLibraryCodes.push({ name: '/core/console.ve', code: `package Ve.Core;
+#alias('console')
+out class Console{
+    private ctor();
+    static assert(predict:bool);
+    static print(msg:string);
+    static log(msg:string);
+    static warn(msg:string);
+    static error(error:Error);
+    #only('error1')
+    static error(error:string);
 }` });
         Lang.VeLibraryCodes.push({ name: '/core/date.ve', code: `
 package Ve.Core;
 #alias('date')
 out interface Date{
     ctor():Date;
-    ctor(times:number):Date;
-    ctor(year:int,month:int,day:int,hour:int, minute:int,second:int,millis:int):Date;
+    ctor(dateFormat:string):Date;
+    ctor(ticks:number):Date;
+    ctor(year:int,month:int,day:int,hour:int,minute:int,second:int,millis:int):Date;
+    //1970年1月1日 （UTC/GMT的午夜）开始所经过的秒数
+    ticks:int;
     year:int;
     //本月1..12
     month:int;
     //每月的一天1..31
     day:int;
+    //一年中的第几天
+    readonly yearday:int;
     //一星期中的星期几
     readonly weekday:int;
-    //一年中的每几周
+    //一年中的第几周
     readonly week:int;
     //一天中的小时，以24小时制0..23
     hour:int;
@@ -7804,21 +7927,29 @@ out interface Date{
     second:int;
     //微秒0...999
     millis:int;
-    readonly yyyy:int;
-    readonly yy:int;
-    readonly MM:int;
-    readonly dd:int;
-    readonly HH:int;
-    readonly hh:int; 
-    readonly mm:int;
-    readonly ss:int;
-    readonly zzz:int;
-    //当前时间加上2.5天
-    add(num:number,unit:string="day"):date;
-    addGap(num:int,unit:string="day"):date;
+    //年 简写
+    readonly y:int;
+    //月 简写
+    readonly m:int;
+    //周 简写
+    readonly w:int;
+     //日 简写
+    readonly d:int;
+     //时 简写
+    readonly h:int;
+     //分钟 简写
+    readonly min:int; 
+     //秒 简写
+    readonly s:int;
+     //毫秒 简写
+    readonly ms:int;
+    //加上几天（相隔），示例 :时间加上2天
+    add(num:int,unit="day"):date;
+    //加上几天 示例 :当前时间加上2.5天
+    adds(num:number,unit="day"):date;
     //当前时间相差2.5天
-    diff(to:date,unit:string='day'):number;
-    diffGap(to:date,unit:string='day'):int;
+    sub(to:date,unit='day'):int;
+    subs(to:date,unit='day'):number;
     #only("toString1")
     toString(format:string):string;
     operator <(other:date):bool;
@@ -7843,17 +7974,129 @@ out decorate interface Alias
 out decorate interface Deprecated{
     ctor(message:string):Deprecated
 }
-#alias('check')
-out decorate interface Check{
-    
-}
 #alias('only')
 out decorate interface Only{
     ctor(name:string):Only;
 }` });
-        Lang.VeLibraryCodes.push({ name: '/core/number.ve', code: `
+        Lang.VeLibraryCodes.push({ name: '/core/Error.ve', code: `package Ve.Core;
+/**
+* 错误
+*/
+out class Error{
+    data:any;
+    //错误码
+    core:int;
+    //帮助链接
+    link:string;
+    //错误信息
+    message:string;
+    source:string;
+    stack:string;
+}` });
+        Lang.VeLibraryCodes.push({ name: '/core/math.ve', code: `package Ve.Core;
+out interface Math{
+    private ctor():Math;
+    //返回圆周率（约等于3.14159）。
+    static PI:number;
+    //返回算术常量 e，即自然对数的底数（约等于2.718）。
+    static E:number;
+    // 返回 2 的自然对数（约等于0.693）。
+    static LN2:number;
+    // 返回 10 的自然对数（约等于2.302）。
+    static LN10:number;
+    // 返回以 2 为底的 e 的对数（约等于 1.414）。
+    static LOG2E:number;
+    // 返回以 10 为底的 e 的对数（约等于0.434）。
+    static LOG10E:number;
+    // 返回返回 2 的平方根的倒数（约等于 0.707）。
+    static SQRT1_2:number;
+    // 返回 2 的平方根（约等于 1.414）。
+    static SQRT2:number;
 
-package Ve.Core;
+    static cos(angle:number):number;
+    static sin(angle:number):number;
+    static tan(angle:number):number;
+    static acos(num:number):number;
+    static asin(num:number):number;
+    static atan(num:number):number;
+    static atan2(num:number):number;
+
+    static exp(num:number):number;
+    static log(num:number):number;
+    static pow(num:number):number;
+    static sqrt(num:number):number;
+    static max(...args:number[]):number;
+    static min(...args:number[]):number;
+    
+    static abs(num:number):number;
+    static ceil(num:number):int;
+    static floor(num:number):int;
+    static round(num:number):int;
+
+}
+
+out interface Random{
+
+    private ctor():Random;
+    static nextInt(max:int,min:int=0):int;
+    static nextBool():bool;
+    static nextNumber():number;
+    /**
+    * 随机指定位数的数字  
+    */
+    static number(digit:int):int;
+    /**随机文体，包含数字，字母
+    * @param digit 表示指定位数
+    *
+    */
+    static chars(digit:int):string;
+}
+
+out interface Point{
+    ctor(x:number,y:number);
+    x:number;
+    y:number;
+    distanceTo(p1:point):number;
+    operator * (factor:number):Point;
+    operator + (other:Point):Point;
+    operator - (other:Point):Point;
+    operator == (other:Point):bool;
+    operator != (other:Point):bool;
+}
+
+out interface Rectangle{
+     ctor(left:number,top:number,width:number,height:number):Rectangle;
+     ctor(p1:Point,p2:Point):Rectangle;
+     top:number;
+     left:number;
+     width:number;
+     height:number;
+     readonly area:number;
+     readonly right:number;
+     readonly bottom:number;
+     readonly topLeft:Point;
+     readonly topRight:Point;
+     readonly bottomLeft:Point;
+     readonly bottomRight:Point;
+     boundingBox(other:Rectangle):Rectangle;
+     containsPoint(point:Point):bool;
+     containsRectangle(other:Rectangle):bool;
+     intersection(other:Rectangle):Rectangle;
+     intersects(other:Rectangle):bool;
+}
+out interface Range{
+    ctor(min:number,max:number):Range;
+    ctor(min:number,minBoundary:bool,max:number,maxBoundary:bool):Range;
+    min:number;
+    minBoundary:bool=true;
+    max:number;
+    maxBoundary:bool=true;
+    contains(num:number):bool;
+    intersection(other:Range):Range;
+    intersects(other:Range):bool;
+}
+` });
+        Lang.VeLibraryCodes.push({ name: '/core/number.ve', code: `package Ve.Core;
 #alias('number')
 out interface Number{
     ctor():number;
@@ -7862,13 +8105,12 @@ out interface Number{
     readonly isNegative:bool;
     readonly isNaN:bool;
     //返回当前数的绝对值
-    abs():int;
+    abs():number;
     ceil():int;
     floor():int;
     round():int;
     //返回this的小数点字符串表示形式
     toFixed(fractionDigits:int):string;
-    toInt():int;
     operator %(other:number):number;
     operator *(other:number):number;
     operator +(other:number):number;
@@ -7879,7 +8121,7 @@ out interface Number{
     operator >(other:number):bool;
     operator >=(other:number):bool;
     static parse(str:string):number;
-    static tryParse(str:string,defalutValue:number=0):number;
+    static tryParse(str:string,defaultValue:number=0):number;
 }
 
 #alias('int')
@@ -7887,19 +8129,21 @@ out interface Int extends Number{
     ctor();
     ctor(str:string):Int; 
     ctor(value:int):int;
+    //偶数
     readonly isEven:bool;
+    //奇数
     readonly isOdd:bool;
-    operator %(other:number):number;
-    operator *(other:number):number;
-    operator +(other:number):number;
-    operator -(other:number):number;
+    operator %(other:number):int;
+    operator *(other:number):int;
+    operator +(other:number):int;
+    operator -(other:number):int;
     operator /(other:number):double;
     operator <(other:number):bool;
     operator <=(other:number):bool;
     operator >(other:number):bool;
     operator >=(other:number):bool;
     static parse(str:String):int;
-    static tryParse(str:string,defalutValue:int=0):int;
+    static tryParse(str:string,defaultValue:int=0):int;
 }
 #alias('double')
 out interface Double extends Number{
@@ -7920,12 +8164,12 @@ out interface String{
     readonly isEmpty:bool;
     readonly isNotEmpty:bool;
     readonly chars:string[];
-    replace(old:String,newStr:string):string;
+    replace(old:string,str:string):string;
     #only("replace1");
-    replace(match:Regex,newStr:string):string;
+    replace(match:Regex,str:string):string;
     contains(str:string):bool;
-    indexOf(str:String):int;
-    lastIndexOf(str:String):int;
+    indexOf(str:string):int;
+    lastIndexOf(str:string):int;
     toLower():string;
     toUpper():string;
     padLeft(width:int,padding:string=' '):string;
@@ -7933,7 +8177,7 @@ out interface String{
     match(regex:Regex):string;
     matchs(regex:Regex):string[];
     isMatch(regex:Regex):bool;
-    split(...str:string[]):string[];     
+    split(str:string):string[];
     substring(startIndex:int,endIndex:int):string;
     reserve():string;
     startsWith(str:string):bool;
@@ -7948,8 +8192,8 @@ out interface String{
 out interface Regex{
     ctor(regexStr:string);
     hasMatch(input:string):bool;
-    stringMatch(input:string):string;
-    stringMatchs(input:string):string[];
+    match(input:string):string;
+    matchs(input:string):string[];
 }` });
     })(Lang = Ve.Lang || (Ve.Lang = {}));
 })(Ve || (Ve = {}));

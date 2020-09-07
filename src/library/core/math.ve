@@ -1,5 +1,5 @@
 package Ve.Core;
-out class Math{
+out interface Math{
     private ctor():Math;
     //返回圆周率（约等于3.14159）。
     static PI:number;
@@ -32,7 +32,7 @@ out class Math{
     static sqrt(num:number):number;
     static max(...args:number[]):number;
     static min(...args:number[]):number;
-
+    
     static abs(num:number):number;
     static ceil(num:number):int;
     static floor(num:number):int;
@@ -40,7 +40,7 @@ out class Math{
 
 }
 
-out Class Random{
+out interface Random{
 
     private ctor():Random;
     static nextInt(max:int,min:int=0):int;
@@ -52,11 +52,12 @@ out Class Random{
     static number(digit:int):int;
     /**随机文体，包含数字，字母
     * @param digit 表示指定位数
+    *
     */
     static chars(digit:int):string;
 }
 
-out Class Point{
+out interface Point{
     ctor(x:number,y:number);
     x:number;
     y:number;
@@ -68,7 +69,7 @@ out Class Point{
     operator != (other:Point):bool;
 }
 
-out Class Rectangle{
+out interface Rectangle{
      ctor(left:number,top:number,width:number,height:number):Rectangle;
      ctor(p1:Point,p2:Point):Rectangle;
      top:number;
@@ -88,8 +89,7 @@ out Class Rectangle{
      intersection(other:Rectangle):Rectangle;
      intersects(other:Rectangle):bool;
 }
-
-out Class Range{
+out interface Range{
     ctor(min:number,max:number):Range;
     ctor(min:number,minBoundary:bool,max:number,maxBoundary:bool):Range;
     min:number;

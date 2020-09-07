@@ -88,8 +88,6 @@ Ve语言的关键字列表
   * catch
   * finally
   * void
-  * assert
-  * check
   * use
   * out
   * package
@@ -112,8 +110,8 @@ def name:any = 'Bob';
 未初始化的变量都会有初始的默认值，因为在Ve 中一切都是对象，数字类型 也不例外。   
 ```
 def lineCount:int;   
-assert(lineCount == null,'lineCount is not null');
-assert(lineCount==0,'lineCount is zero')  
+Console.assert(lineCount == null,'lineCount is not null');
+Console.assert(lineCount==0,'lineCount is zero');
 ```
 
 # def 和 const
@@ -210,7 +208,7 @@ def s4 = "It's even easier to use the other delimiter.";
 
 字符串可以通过 @{expression} 的方式内嵌表达式。 如果表达式是一个标识符，则 {} 可以省略。 在 Ve 中通过调用就对象的 toString() 方法来得到对象相应的字符串。
 ```
-var s = 'string interpolation';
+def s = 'string interpolation';
 Console.print('Ve has @s, which is very handy.' ==
     'Ve has string interpolation, ' +
         'which is very handy.');
@@ -255,20 +253,20 @@ Ve 使用 bool 类型表示布尔值。 Ve 只有字面量 true and false 是布
 Ve 的类型安全意味着不能使用 if (nonbooleanValue) 。 而是应该像下面这样，明确的进行值检查：
 ```
 // 检查空字符串。
-var fullName = '';
-assert(fullName.isEmpty);
+def fullName = '';
+Console.assert(fullName.isEmpty);
 
 // 检查 0 值。
-var hitPoints = 0;
-assert(hitPoints <= 0);
+def hitPoints = 0;
+Console.assert(hitPoints <= 0);
 
 // 检查 null 值。
-var unicorn;
-assert(unicorn == null);
+def unicorn;
+Console.assert(unicorn == null);
 
 // 检查 NaN 。
-var iMeantToDoThis = 0 / 0;
-assert(iMeantToDoThis.isNaN);
+def iMeantToDoThis = 0 / 0;
+Console.assert(iMeantToDoThis.isNaN);
 ```
 
 # Array
@@ -284,12 +282,12 @@ def list3=[1,2,3.1,'ssss'] // list4 type Array<any>
 
 Array 的下标索引从 0 开始，第一个元素的索引是 0。 Array.length - 1 是最后一个元素的索引。 访问 Array 的长度和元素与 JavaScript 中的用法一样：
 ```
-var list = [1, 2, 3];
-assert(list.length == 3);
-assert(list[1] == 2);
+def list = [1, 2, 3];
+Console.assert(list.length == 3);
+Console.assert(list[1] == 2);
 
 list[1] = 1;
-assert(list[1] == 1);
+Console.assert(list[1] == 1);
 ```
 
 # Object
@@ -381,9 +379,9 @@ out class Test{
             fun nestedFunction()
             {
                 def insideNestedFunction = true;
-                assert(insideMain);
-                assert(insideFunction);
-                assert(insideNestedFunction);
+                Console.assert(insideMain);
+                Console.assert(insideFunction);
+                Console.assert(insideNestedFunction);
             }
         }
     } 
@@ -421,12 +419,12 @@ if (n % i == 0 && d % i == 0) ...
 ## 算术运算符
 Ve 支持常用的运算运算符：
 ```
-assert(2 + 3 == 5);
-assert(2 - 3 == -1);
-assert(2 * 3 == 6);
-assert(5 / 2 == 2.5); // 结果是双浮点型
-assert(5 % 2 == 1); // 余数
-assert('5/2 = @{5 ~/ 2} r @{5 % 2}' == '5/2 = 2 r 1');
+Console.assert(2 + 3 == 5);
+Console.assert(2 - 3 == -1);
+Console.assert(2 * 3 == 6);
+Console.assert(5 / 2 == 2.5); // 结果是双浮点型
+Console.assert(5 % 2 == 1); // 余数
+Console.assert('5/2 = @{5 ~/ 2} r @{5 % 2}' == '5/2 = 2 r 1');
 ```
 ## 自增和自减运算符。
 示例：
@@ -435,19 +433,19 @@ def a:int, b:int;
 
 a = 0;
 b = ++a; // a自加后赋值给b。
-assert(a == b); // 1 == 1
+Console.assert(a == b); // 1 == 1
 
 a = 0;
 b = a++; // a先赋值给b后，a自加。
-assert(a != b); // 1 != 0
+Console.assert(a != b); // 1 != 0
 
 a = 0;
 b = --a; // a自减后赋值给b。
-assert(a == b); // -1 == -1
+Console.assert(a == b); // -1 == -1
 
 a = 0;
 b = a--; // a先赋值给b后，a自减。
-assert(a != b); // -1 != 0
+Console.assert(a != b); // -1 != 0
 ```
 ## 关系运算符
 要测试两个对象x和y是否表示相同的事物， 使用 == 运算符。 (在极少数情况下， 要确定两个对象是否完全相同，需要使用 identical() 函数。) 下面给出 == 运算符的工作原理：
@@ -458,12 +456,12 @@ assert(a != b); // -1 != 0
 
 这里列出了每种关系运算符的示例：
 ```
-assert(2 == 2);
-assert(2 != 3);
-assert(3 > 2);
-assert(2 < 3);
-assert(3 >= 3);
-assert(2 <= 3);
+Console.assert(2 == 2);
+Console.assert(2 != 3);
+Console.assert(3 > 2);
+Console.assert(2 < 3);
+Console.assert(3 >= 3);
+Console.assert(2 <= 3);
 ```
 
 ## 类型判定运算符
@@ -533,7 +531,6 @@ playerName(name:string):string {
  * while and do while
  * break and continue
  * switch and case ,when and then
- * assert and check
  使用 try-catch 和 throw 也可以改变程序流程  
 ## if 和 else
 Ve 支持 if - else 语句，其中 else 是可选的， 比如下面的例子
@@ -575,25 +572,18 @@ while (true) {
 使用 continue 跳转到下一次迭代：
 ```
 for (int i = 0; i < candidates.length; i++) {
-  var candidate = candidates[i];
+  def candidate = candidates[i];
   if (candidate.yearsExperience < 5) {
     continue;
   }
   candidate.interview();
 }
 ```
-如果对象实现了 Iterable 接口;  那么上面示例完全可以用另一种方式来实现：
-```
-candidates
-    .where((c) => c.yearsExperience >= 5)
-    .forEach((c) => c.interview());
-
-```
 ## switch and case
 在 case 语句中，每个非空的 case 语句结尾需要跟一个 break 语句。 除 break 以外，还有可以使用 continue, throw，者 return。
 当没有 case 语句匹配时，执行 default 代码：
 ```
-var command = 'OPEN';
+def command = 'OPEN';
 switch (command) {
   case 'CLOSED':
     executeClosed();
@@ -616,7 +606,7 @@ switch (command) {
 ```
 下面的 case 程序示例中缺省了 break 语句，导致错误：
 ```
-var command = 'OPEN';
+def command = 'OPEN';
 switch (command) {
   case 'OPEN':
     executeOpen();
@@ -629,7 +619,7 @@ switch (command) {
 ```
 但是， Ve 支持空 case 语句， 允许程序以 fall-through 的形式执行。
 ```
-var command = 'CLOSED';
+def command = 'CLOSED';
 switch (command)
 {
   case 'CLOSED': // Empty case falls through.
@@ -642,25 +632,25 @@ switch (command)
 case 语句可以拥有局部变量， 这些局部变量只能在这个语句的作用域中可见。
 ## when and then
 
-## assert
-如果 assert 语句中的布尔条件为 false ， 那么正常的程序执行流程会被中断。 在本章中包含部分 assert 的使用， 下面是一些示例：
+## Console.assert
+如果 Console.assert 语句中的布尔条件为 false ， 那么正常的程序执行流程会被中断。 在本章中包含部分 Console.assert 的使用， 下面是一些示例：
 ```
 // 确认变量值不为空。
-assert(text != null);
+Console.assert(text != null);
 
 // 确认变量值小于100。
-assert(number < 100);
+Console.assert(number < 100);
 
 // 确认 URL 是否是 https 类型。
-assert(urlString.startsWith('https'));
+Console.assert(urlString.startsWith('https'));
 
 ```
-assert 的第二个参数可以为其添加一个字符串消息。
+Console.assert 的第二个参数可以为其添加一个字符串消息。
 ```
-assert(urlString.startsWith('https'),
+Console.assert(urlString.startsWith('https'),
     'URL ($urlString) should start with "https".');
 ```
-assert 的第一个参数可以是解析为布尔值的任何表达式。 如果表达式结果为 true ， 则断言成功，并继续执行。 如果表达式结果为 false ， 则断言失败，并抛出异常 (AssertionError)
+Console.assert 的第一个参数可以是解析为布尔值的任何表达式。 如果表达式结果为 true ， 则断言成功，并继续执行。 如果表达式结果为 false ， 则断言失败，并抛出异常 (AssertionError)
 # 异常
 Ve 代码可以抛出和捕获异常。 异常表示一些未知的错误情况。 如果异常没有被捕获， 则异常会抛出， 导致抛出异常的代码终止执行。
 Ve 提供了 Exception 和 Error 类型， 以及一些子类型。 当然也可以定义自己的异常类型。 但是，此外 Ve 程序可以抛出任何非 null 对象， 不仅限 Exception 和 Error 对象。
@@ -712,13 +702,13 @@ try {
 
 使用 (.) 来引用实例对象的变量和方法：
 ```
-ar p = new Point(2, 2);
+def p = new Point(2, 2);
 
 // 为实例的变量 y 设置值。
 p.y = 3;
 
 // 获取变量 y 的值。
-assert(p.y == 3);
+Console.assert(p.y == 3);
 
 // 调用 p 的 distanceTo() 方法。
 def distance = p.distanceTo(new Point(4, 4));
@@ -793,8 +783,8 @@ fun test()
   const v = new Vector(2, 3);
   const w = new Vector(2, 2);
 
-  assert(v + w == new Vector(4, 5));
-  assert(v - w == new Vector(0, 1));
+  Console.assert(v + w == new Vector(4, 5));
+  Console.assert(v - w == new Vector(0, 1));
 }
 
 
@@ -808,16 +798,11 @@ fun test()
 ```
 enum Color { red, green, blue }
 ```
-枚举中的每个值都有一个 index getter 方法， 该方法返回值所在枚举类型定义中的位置（从 0 开始）。 例如，第一个枚举值的索引是 0 ， 第二个枚举值的索引是 1。
-```
-assert(Color.red.index == 0);
-assert(Color.green.index == 1);
-assert(Color.blue.index == 2);
-```
+
 可以在 switch 语句 中使用枚举。
 ```
-def aColor = Color.blue;
-switch (aColor)
+def color = Color.blue;
+switch (color)
 {
   case Color.red:
     Console.print('Red as roses!');
@@ -826,7 +811,7 @@ switch (aColor)
     Console.print('Green as grass!');
     break;
   default: 
-    Console.print(aColor); // 'Color.blue'
+    Console.print(color); // 2
 }
 ```
 枚举类型具有以下限制：
@@ -882,11 +867,10 @@ class ObjectCache {
 ```
 class Television {
   /// _Deprecated: Use [turnOn] instead._
-  #deprecated
+   #deprecated
    activate() {
     turnOn();
   }
-
   /// Turns the TV's power on.
   turnOn() {...}
 }

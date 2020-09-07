@@ -44,7 +44,7 @@ namespace Ve.Lang.Ved {
         }
         show() {
             var line_ele = this.span.closest('.ved-line');
-            if (!line_ele.parentElement) return;
+            if (!line_ele  || line_ele && !line_ele.parentElement) return;
             var index = 0;
             for (var i = 0; i < line_ele.parentElement.children.length; i++) {
                 if (line_ele.parentElement.children[i] === line_ele) { index = i; break; }

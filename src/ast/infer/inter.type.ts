@@ -55,6 +55,9 @@ namespace Ve.Lang {
             var inferType: TypeExpress;
             var searchKey = (key: string, last?: boolean) => {
                 if (inferType) {
+                    /**
+                     * 推断unit类型
+                     */
                     if (inferType.name) {
                         if (last == true && callExpress instanceof MethodCallExpress) {
                             var cla = node.queryName(inferType.name, new List(NodeType.class)) as ClassStatement;
@@ -88,6 +91,54 @@ namespace Ve.Lang {
                             var cla = node.queryName(inferType.name, new List(NodeType.class)) as ClassStatement;
                             if (!cla) {
                                 throw `not found class name:${inferType.name}`
+                            }
+                            var pro = cla.propertys.find(x => x instanceof ClassProperty && x.isPublic && !x.isStatic && x.isName(key)) as any;
+                            if (pro) {
+                                inferType = pro.inferType();
+                            }
+                            else {
+                                throw `this class ${cla.fullNames.first()} not found ${key} `;
+                            }
+                        }
+                    }
+                    else if (inferType.generics.length > 0) {
+                        /***
+                         *  这里处理的是数组类型
+                         * 
+                         */
+                        var name = inferType.unionType.name;
+                        if (last == true && callExpress instanceof MethodCallExpress) {
+                            var cla = node.queryName(name, new List(NodeType.class)) as ClassStatement;
+                            var pros = cla.propertys.findAll(x => (x instanceof ClassMethod) && x.isPublic && !x.isStatic && x.name == key) as List<ClassMethod>;
+                            if (pros.length == 0) {
+                                throw Exception.create([ExceptionCode.notFoundMethod, node, '"@{className}"类中无法找到方法"${name}"', { name: key, className: cla.fullNames.first() }]);
+                            }
+                            var pro = pros.find(x => this.InferTypeMethodCallFunTypeIsCompatibility(callExpress, x, inferType.generics)) as any;
+                            if (pro) {
+                                inferType = pro.inferType().returnType;
+                            }
+                            else {
+                                throw Exception.create([ExceptionCode.notFoundMethod, node, '调用"@{className}"类中的方法"${name}"方法不兼容', { name: key, className: cla.fullNames.first() }]);
+                            }
+                        }
+                        else if (last == true && callExpress instanceof NewCallExpress) {
+                            var cla = node.queryName(name, new List(NodeType.class)) as ClassStatement;
+                            var pros = cla.propertys.findAll(x => (x instanceof ClassMethod) && x.isCtor && x.isPublic) as List<ClassMethod>;
+                            if (pros.length == 0) {
+                                throw Exception.create([ExceptionCode.notFoundMethod, node, '"@{className}"类中无法找到方法"${name}"', { name: key, className: cla.fullNames.first() }]);
+                            }
+                            var pro = pros.find(x => this.InferTypeMethodCallFunTypeIsCompatibility(callExpress.caller as MethodCallExpress, x, inferType.generics)) as any;
+                            if (pro) {
+                                inferType = pro.inferType().retunType;
+                            }
+                            else {
+                                throw Exception.create([ExceptionCode.notFoundMethod, node, '调用"@{className}"类中的方法"${name}"方法不兼容', { name: key, className: cla.fullNames.first() }]);
+                            }
+                        }
+                        else if (name) {
+                            var cla = node.queryName(name, new List(NodeType.class)) as ClassStatement;
+                            if (!cla) {
+                                throw `not found class name:${name}`
                             }
                             var pro = cla.propertys.find(x => x instanceof ClassProperty && x.isPublic && !x.isStatic && x.isName(key)) as any;
                             if (pro) {

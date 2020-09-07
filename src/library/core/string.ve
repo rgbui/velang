@@ -7,12 +7,12 @@ out interface String{
     readonly isEmpty:bool;
     readonly isNotEmpty:bool;
     readonly chars:string[];
-    replace(old:String,str:string):string;
+    replace(old:string,str:string):string;
     #only("replace1");
     replace(match:Regex,str:string):string;
     contains(str:string):bool;
-    indexOf(str:String):int;
-    lastIndexOf(str:String):int;
+    indexOf(str:string):int;
+    lastIndexOf(str:string):int;
     toLower():string;
     toUpper():string;
     padLeft(width:int,padding:string=' '):string;

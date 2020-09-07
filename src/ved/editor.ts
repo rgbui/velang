@@ -71,6 +71,10 @@ namespace Ve.Lang.Ved {
         public cursor: Cursor;
         public textInput: TextInput;
         public selection: Selection;
+        public focused: boolean = false;
+        onblur() {
+            this.textInput.blur();
+        }
         private _initElement() {
             var self = this;
             this.editor_wrapper_ele.innerHTML = `<div>                
@@ -97,12 +101,17 @@ namespace Ve.Lang.Ved {
             this.editor_ele.addEventListener('focusin', function (event: FocusEvent) {
                 self.textInput.active();
                 if (!self.editor_ele.contains(event.relatedTarget as HTMLElement)) {
+                    self.focused = true;
                     self.emit('focus', event);
                     self.cursor.visible();
                 }
             });
             this.editor_ele.addEventListener('focusout', function (event: FocusEvent) {
-                if (!self.editor_ele.contains(event.relatedTarget as HTMLElement)) { self.emit('blur', event); self.cursor.hidden(); }
+                if (!self.editor_ele.contains(event.relatedTarget as HTMLElement)) {
+                    self.focused = false;
+                    self.emit('blur', event);
+                    self.cursor.hidden();
+                }
             });
             this.editor_ele.addEventListener('scroll', function (event: Event) {
                 self.scrollX = self.editor_ele.scrollLeft;

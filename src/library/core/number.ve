@@ -13,7 +13,6 @@ out interface Number{
     round():int;
     //返回this的小数点字符串表示形式
     toFixed(fractionDigits:int):string;
-    toInt():int;
     operator %(other:number):number;
     operator *(other:number):number;
     operator +(other:number):number;
@@ -36,10 +35,10 @@ out interface Int extends Number{
     readonly isEven:bool;
     //奇数
     readonly isOdd:bool;
-    operator %(other:number):number;
-    operator *(other:number):number;
-    operator +(other:number):number;
-    operator -(other:number):number;
+    operator %(other:number):int;
+    operator *(other:number):int;
+    operator +(other:number):int;
+    operator -(other:number):int;
     operator /(other:number):double;
     operator <(other:number):bool;
     operator <=(other:number):bool;

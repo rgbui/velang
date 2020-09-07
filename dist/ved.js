@@ -141,6 +141,7 @@ var Ve;
                     this.lineHeight = 19;
                     this.theme = 'light';
                     this.padding = [10];
+                    this.focused = false;
                     this._inited = false;
                     this.editor_wrapper_ele = ele;
                     this.wordWidth = Ved.Util.getTextbound(' ', this.fontStyle).width;
@@ -154,6 +155,9 @@ var Ve;
                         fontSize: this.fontSize,
                         fontFamily: this.fontFamily
                     };
+                }
+                onblur() {
+                    this.textInput.blur();
                 }
                 _initElement() {
                     var self = this;
@@ -181,12 +185,14 @@ var Ve;
                     this.editor_ele.addEventListener('focusin', function (event) {
                         self.textInput.active();
                         if (!self.editor_ele.contains(event.relatedTarget)) {
+                            self.focused = true;
                             self.emit('focus', event);
                             self.cursor.visible();
                         }
                     });
                     this.editor_ele.addEventListener('focusout', function (event) {
                         if (!self.editor_ele.contains(event.relatedTarget)) {
+                            self.focused = false;
                             self.emit('blur', event);
                             self.cursor.hidden();
                         }
@@ -645,7 +651,7 @@ var Ve;
                 }
                 show() {
                     var line_ele = this.span.closest('.ved-line');
-                    if (!line_ele.parentElement)
+                    if (!line_ele || line_ele && !line_ele.parentElement)
                         return;
                     var index = 0;
                     for (var i = 0; i < line_ele.parentElement.children.length; i++) {
@@ -1240,6 +1246,11 @@ var Ve;
                     this.render();
                     if (document.activeElement != this.ele)
                         this.ele.focus();
+                }
+                blur() {
+                    if (this.ele == document.activeElement) {
+                        this.ele.blur();
+                    }
                 }
                 focus() {
                     this.render();

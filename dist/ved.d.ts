@@ -55,6 +55,8 @@ declare namespace Ve.Lang.Ved {
         cursor: Cursor;
         textInput: TextInput;
         selection: Selection;
+        focused: boolean;
+        onblur(): void;
         private _initElement;
         readonly paddingBound: {
             top: number;
@@ -239,6 +241,7 @@ declare namespace Ve.Lang.Ved {
         private init;
         render(): void;
         active(): void;
+        blur(): void;
         private pos;
         private lastValue;
         focus(): void;

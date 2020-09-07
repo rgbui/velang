@@ -81,6 +81,51 @@ namespace Ve.Lang.Generate {
                             }
                         }
                     }
+                    else if (inferType.unionType) {
+                        /***
+                         * 数组泛型类型
+                         */
+                        if (last == true && callExpress instanceof MethodCallExpress) {
+                            var cla = node.queryName(inferType.unionType.name, new List(NodeType.class)) as ClassStatement;
+                            var pros = cla.propertys.findAll(x => (x instanceof ClassMethod) && x.isPublic && !x.isStatic && x.name == key) as List<ClassMethod>;
+                            var pro = pros.find(x => InferType.InferTypeMethodCallFunTypeIsCompatibility(callExpress, x, inferType.generics)) as any;
+                            if (pro) {
+                                inferType = pro.inferType().retunType;
+                                var cm = pro as ClassMethod;
+                                var obj = { caller: nameCode };
+                                callExpress.argements.each((arg, i) => {
+                                    obj[cm.parameters.eq(i).name] = render.express(arg);
+                                });
+                                nameCode = this.renderClassProp(pro.onlyName, obj);
+                            }
+                        }
+                        else if (last == true && callExpress instanceof NewCallExpress) {
+                            var cla = node.queryName(inferType.unionType.name, new List(NodeType.class)) as ClassStatement;
+                            var pros = cla.propertys.findAll(x => (x instanceof ClassMethod) && x.isCtor && x.isPublic) as List<ClassMethod>;
+                            var pro = pros.find(x => InferType.InferTypeMethodCallFunTypeIsCompatibility(callExpress.caller as MethodCallExpress, x, inferType.generics)) as any;
+                            if (pro) {
+                                inferType = pro.inferType().retunType;
+                                var cm = pro as ClassMethod;
+                                var obj = { caller: nameCode };
+                                (callExpress.caller as MethodCallExpress).argements.each((arg, i) => {
+                                    obj[cm.parameters.eq(i).name] = render.express(arg);
+                                });
+                                nameCode = this.renderClassProp(pro.onlyName, obj);
+                            }
+                        }
+                        else {
+                            var cla = node.queryName(inferType.unionType.name, new List(NodeType.class)) as ClassStatement;
+                            if (!cla) {
+                                console.log(inferType.name, node, cla);
+                            }
+                            var pro = cla.propertys.find(x => x instanceof ClassProperty && x.isPublic && !x.isStatic && x.isName(key)) as any;
+                            if (pro) {
+                                inferType = pro.inferType();
+                                var obj = { caller: nameCode };
+                                nameCode = this.renderClassProp(pro.onlyName, { caller: nameCode });
+                            }
+                        }
+                    }
                 }
                 else {
                     names.push(key);

@@ -171,6 +171,11 @@ namespace Ve.Lang.Ved {
             if (document.activeElement != this.ele)
                 this.ele.focus();
         }
+        blur() {
+            if (this.ele == document.activeElement) {
+                this.ele.blur();
+            }
+        }
         private pos: { col: number, row: number };
         private lastValue: string = '';
         focus() {

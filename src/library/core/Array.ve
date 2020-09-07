@@ -1,5 +1,4 @@
 package Ve.Core;
-
 out interface Array<T>{
         ctor();
         readonly length:int;
