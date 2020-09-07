@@ -77,10 +77,10 @@
       def exp=123例子;
      ```
   4. 类里面的属性和方法默认是公开的，如果是私有的，需要主动强调声明
-  5. when的语法
-     when{
-         ...\[express->express|statement]
-     }
+  5. when的语法   
+     when{   
+         ...\[express->express|statement]   
+     }  
 ## 包装API接口示例
    1. 需要用Ve语言申明相关的接口    
     ```
