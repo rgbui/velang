@@ -5,7 +5,7 @@
    > 当前Ve语言不建议使用，因为整体功能并不是十分完善。只是测了[火凤凰](https://viewparse.com "火凤凰")用到的一些功能。仅供开发人员学习。  
 ## 语法特色
  相关详细语法请参考[ve语法](https://github.com/rgbui/velang/blob/master/doc/language.md "ve语法")  
- 
+
  ```
   package Ve.Core;
   use Ve.Core.String ;
@@ -81,7 +81,8 @@
          ...\[express->express|statement]   
      }  
 ## 包装API接口示例
-   1. 需要用Ve语言申明相关的接口    
+   1. 需要用Ve语言申明相关的接口   
+
     ```
      package Ve.Core;
      outer interface File{
@@ -91,7 +92,7 @@
     }
     ```
    2. 包装API接口最终会生成的其它语言   
-      如果生成nodejs语言
+      如果生成nodejs语言   
       ```
       {
           'Ve.Core.File':{
