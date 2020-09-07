@@ -1,10 +1,12 @@
 ## Ve lang 
-   Ve语言是一门胶水式编程语言，主要用来封装及生成其它编程语言的语言。
-   Ve语言是[火凤凰](https://viewparse.com "火凤凰")这款软件设计工具中所内置的编程语言，基于ts编写的。
-   Ve语言就像集中箱打包货物一样，它会将现阶段相对比较好的各种开源库进行包装，使得整体遵循统一的调用设计规范。同时在包装api的过程中，会打上标签、尽量的语义化、收集更多的信息，这有肋于生成更优质的代码。
-   > 当前Ve语言不建议使用，因为整体功能并不是十分完善。只是测了[火凤凰](https://viewparse.com "火凤凰")用到的一些功能。仅供开发人员学习。
+   Ve语言是一门胶水式编程语言，主要用来封装及生成其它编程语言的语言。   
+   Ve语言是[火凤凰](https://viewparse.com "火凤凰")这款软件设计工具中所内置的编程语言，基于ts编写的。   
+   Ve语言就像集中箱打包货物一样，它会将现阶段相对比较好的各种开源库进行包装，使得整体遵循统一的调用设计规范。同时在包装api的过程中，会打上标签、尽量的语义化、收集更多的信息，这有肋于生成更优质的代码。   
+   > 当前Ve语言不建议使用，因为整体功能并不是十分完善。只是测了[火凤凰](https://viewparse.com "火凤凰")用到的一些功能。仅供开发人员学习。  
 ## 语法特色
+
     没什么太多特别的新语法。 详细的请参考[ve语法](doc/language.md)  
+
  ```
   package Ve.Core;
   use Ve.Core.String ;
@@ -80,16 +82,16 @@
          ...\[express->express|statement]
      }
 ## 包装API接口示例
-   1. 需要用Ve语言申明相关的接口
-   ···
+   1. 需要用Ve语言申明相关的接口    
+    ```
      package Ve.Core;
      outer interface File{
          private filePath:string;
          ctor(filePath:string);
          read():string;
     }
-   ···
-   2. 包装API接口最终会生成的其它语言
+    ```
+   2. 包装API接口最终会生成的其它语言   
       如果生成nodejs语言
       ```
       {
@@ -127,14 +129,14 @@
           }
       }
       ```
-    3. 申明以上信息后，就可以在Ve语言中使用了
-      如系统环境
+    3. 申明以上信息后，就可以在Ve语言中使用了   
+      如系统环境   
       ```
          def file=new File('C:\\viewparse\\trunk\\Works\\test.text');
          def file1="C:\\viewparse\\trunk\\Works\\test.text"File;
          console.log(file.read());
       ```
-      如浏览器环境
+      如浏览器环境   
       ```
         def file=document.selector('#file').file;
         consolg.log(file.read())
