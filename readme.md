@@ -4,9 +4,8 @@
    Ve语言就像集中箱打包货物一样，它会将现阶段相对比较好的各种开源库进行包装，使得整体遵循统一的调用设计规范。同时在包装api的过程中，会打上标签、尽量的语义化、收集更多的信息，这有肋于生成更优质的代码。   
    > 当前Ve语言不建议使用，因为整体功能并不是十分完善。只是测了[火凤凰](https://viewparse.com "火凤凰")用到的一些功能。仅供开发人员学习。  
 ## 语法特色
-
-    没什么太多特别的新语法。 详细的请参考[ve语法](doc/language.md)  
-
+ 相关详细语法请参考[ve语法](https://github.com/rgbui/velang/blob/master/doc/language.md "ve语法")  
+ 
  ```
   package Ve.Core;
   use Ve.Core.String ;
